@@ -11,6 +11,16 @@ public class Patron extends Salarie implements IPatron {
 		this.salaire = salaire;
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Patron " + super.toString() + "[Nsecu=" + Nsecu + ", salaire=" + salaire + "]";
+	}
+
+
+
 	@Override
 	public void embauche() {
 		// TODO Auto-generated method stub

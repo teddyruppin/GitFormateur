@@ -1,14 +1,17 @@
 package projpoo1;
 
-import java.util.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-import projpoo1.MonException;
+import projpoo1.Exception.ErreurSaisie;
+import projpoo1.GestionCommande.Achat;
 import projpoo1.GestionPersonnes.Client;
 import projpoo1.GestionPersonnes.Fournisseur;
 import projpoo1.GestionPersonnes.IClient;
 import projpoo1.GestionPersonnes.IFournisseur;
 import projpoo1.GestionPersonnes.IPatron;
+import projpoo1.GestionPersonnes.Patron;
 import projpoo1.GestionPersonnes.Personne;
 import projpoo1.GestionPersonnes.Salarie;
 
@@ -17,6 +20,9 @@ public class Programme {
  static boolean reussi = false;
  static Scanner sc = new Scanner(System.in);
  static List<Personne> lp = new ArrayList<Personne>();
+ static List<Achat> la = new ArrayList<Achat>();
+ static List<IClient> lic = new ArrayList<IClient>();
+
  
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -51,52 +57,99 @@ public class Programme {
 		System.out.println("liste clients : 4" );
 		System.out.println("liste salariés : 5" );
 		System.out.println("liste fournisseurs : 6" );
-		
-		
-		
+		System.out.println("saisir un PATRON : 7");
+		System.out.println("afficher un PATRON : 8");
+		System.out.println("liste IClient : 9");
+		System.out.println("saisir achat pour un IClient : 10");
+
 		
 		System.out.println("Choix? ");
 		String choix = sc.nextLine();
+		
 		switch (choix) {
+		
 		case "1":
 			System.out.println("Vous voulez ajouter un client" );
 			Programme.creerClient();
 			break;
+			
 		case "2":
 			System.out.println("Vous voulez ajouter un salarie" );
 			Programme.creerSalarier();
 			break;
+			
 		case "3":
 			System.out.println("Vous voulez ajouter un fournisseur");
 			Programme.creerFournisseur();
 			break;
+			
 		case "4":
 			System.out.println("Voici la liste des clients" );
 			for (Personne p:lp) {
-				if (p.getClass().getSimpleName().equals("Client")) {
+				if (p instanceof Client) {
 					System.out.println(p);
 				}
 			}
 			break;
+			
 		case "5":
 			System.out.println("Voici la liste des salariés" );
 			for (Personne p:lp) {
-				if (p.getClass().getSimpleName().equals("Salarie")) {
+				if (p instanceof Salarie) {
 					System.out.println(p);
 				}
 			}
 			break;
+			
 		case "6":
 			System.out.println("Voici la liste des fournisseurs");
 			for (Personne p:lp) {
-				if (p.getClass().getSimpleName().equals("Fournisseur")) {
+				if (p instanceof Fournisseur) {
 					System.out.println(p);
 				}
 			}
-			break;			
+			break;
+			
+		case "7":
+			System.out.println("Saisissez un nouveau patron");
+			for (Personne p:lp) {
+				if (p instanceof Patron) {
+					lp.remove(p);
+					break;
+				}
+			}
+			Programme.saisirPatron();
+			break;	
+			
+		case "8":
+			System.out.println("Voici le patron");
+			for (Personne p:lp) {
+				if (p instanceof Patron) {
+					System.out.println(p);
+				}
+			}
+			break;
+			
+		case "9":
+			System.out.println("Voici la liste des IClient");
+			for (Personne p:lp) {
+				if (p instanceof IClient) {
+					if (((IClient) p).estClient()==true) {
+						lic.add((IClient) p);
+						System.out.println(p);
+					}
+				}
+			}
+			break;
+			
+		case "10":
+			System.out.println("saisir achat pour un IClient");
+			break;
+			
 		default:
 			System.out.println("Rentrer une valeur proposée");
 			break;
+			
 		}
 		
 
@@ -107,8 +160,8 @@ public class Programme {
 		if ( arret.equals("oui")) {
 			x = true;
 		}
-
 		}
+		System.out.println("FIN DU PROGRAMME");
 	}
 	
 	// 1
@@ -138,11 +191,8 @@ public class Programme {
 	
 		
 		System.out.println("Numero de client? ");
-		String nc = sc.nextLine();
+		String nc = "";
 		reussi = false;
-
-
-		
 		while (reussi==false) {			
 		do {
 			nc = sc.nextLine();
@@ -152,9 +202,9 @@ public class Programme {
 			else
 			{
 				try {
-					Programme.testeUniciteNumClient(nc);
+					Client.testeUniciteNumClient(nc, lp);
 					reussi = true;
-				} catch (MonException e) {
+				} catch (ErreurSaisie e) {
 					System.out.println("le numero rentré existe déjà, veuillez en rentrer un nouveau");
 				}
 			}
@@ -162,15 +212,54 @@ public class Programme {
 		}
 		
 		
-		//sc.close();
+		System.out.println("êtes vous client? true/false ");
+		Boolean ec = sc.nextBoolean();
+		sc.nextLine();
 		
-		IClient monClient = new Client(nom, prenom, adr, vil, cod, nc);
+		System.out.println("êtes vous fournisseur? true/false ");
+		Boolean ef = sc.nextBoolean();
+		sc.nextLine();
+		
+		IClient monClient = new Client(nom, prenom, adr, vil, cod, nc, ec, ef);
 		System.out.println(monClient);
 		lp.add((Personne) monClient);
 		
 	}
 	
 	
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+		
+
+	
+	public static void achatClient(IClient cl) {
+		boolean sorti = false;
+		la.clear();
+		while (sorti == false) {
+			System.out.println("Nom de l'article? ");
+			String nom = sc.nextLine();
+
+			System.out.println("Quantite de l'article? ");
+			int qte = sc.nextInt();
+		
+			System.out.println("Date de l'achat? ");
+			String date = sc.next();
+			
+			Achat monAchat = new Achat(nom, qte, date); 
+			System.out.println(monAchat);
+			la.add((Achat)monAchat);
+			
+			System.out.println("avez vous d'autres achats a faire? oui/non");
+			String st = sc.next();
+			if (st.equals("non")) {
+				sorti = true;
+			}
+			
+		}
+		cl.achete(la);
+	}
+	
+
 	// 2
 	public static void creerSalarier() {
 		//Scanner sc = new Scanner(System.in);
@@ -212,9 +301,9 @@ public class Programme {
 			else
 			{
 				try {
-					Programme.testeUniciteSecu(insee);
+					Salarie.testeUniciteSecu(insee,lp);
 					reussi = true;
-				} catch (MonException e) {
+				} catch (ErreurSaisie e) {
 					System.out.println("le numero rentré existe déjà, veuillez en rentrer un nouveau");
 				}
 			}
@@ -235,13 +324,11 @@ public class Programme {
 		
 		//sc.close();
 		
-///////////////////////////////////////////////////////////////////		
 		
 		IPatron monSalarie = (IPatron) new Salarie(nom, prenom, adr, vil, cod, insee, sal);
 		System.out.println(monSalarie);
 		lp.add((Personne) monSalarie);
 	}
-///////////////////////////////////////////////////////////////////		
 	
 	
 	// 3
@@ -270,7 +357,7 @@ public class Programme {
 
 		
 		System.out.println("Numero de fournisseur? ");
-		String nfourni = sc.nextLine();
+		String nfourni = "";
 		reussi = false;
 
 		while (reussi==false) {			
@@ -282,23 +369,103 @@ public class Programme {
 			else
 			{
 				try {
-					Programme.testeUniciteNumFournisseur(nfourni);
+					Fournisseur.testeUniciteNumFournisseur(nfourni, lp);
 					reussi = true;
-				} catch (MonException e) {
+				} catch (ErreurSaisie e) {
 					System.out.println("le numero rentré existe déjà, veuillez en rentrer un nouveau");
 				}
 			}
 		} while (!nfourni.matches("\\d{13}") && reussi==false);
 		}
 		
+		System.out.println("êtes vous client? true/false ");
+		Boolean ec = sc.nextBoolean();
+		sc.nextLine();
+		
+		System.out.println("êtes vous fournisseur? true/false ");
+		Boolean ef = sc.nextBoolean();
+		sc.nextLine();
+		
 
 		//sc.close();
 		
-		IFournisseur monFournisseur = new Fournisseur(nom, prenom, adr, vil, cod, nfourni);
+		IFournisseur monFournisseur = new Fournisseur(nom, prenom, adr, vil, cod, nfourni, ec, ef);
 		System.out.println(monFournisseur);
 		lp.add((Personne) monFournisseur);
 	}
 	
+	
+	public static void saisirPatron() {
+		System.out.println("Nom? ");
+		String nom = sc.nextLine();
+
+		System.out.println("Prenom? ");
+		String prenom = sc.nextLine();
+	
+		System.out.println("Adresse? ");
+		String adr = sc.nextLine();
+
+		System.out.println("Ville? ");
+		String vil = sc.nextLine();
+
+		System.out.println("Code postal? ");
+		String cod;
+		do {
+			cod = sc.nextLine();
+			if (!cod.matches("\\d{1,5}")){
+				System.out.println("Rentrez un code postal du type XXXXX");
+			}
+		} while (!cod.matches("\\d{1,5}"));
+		
+		
+		System.out.println("Numero de sécurite social? ");
+		String insee="";
+		reussi = false;
+		
+		while (reussi==false) {
+			
+		do {
+			insee = sc.nextLine();
+			if (!insee.matches("\\d{13}")){
+				System.out.println("Rentrez un Numero de Sécurité du type X XX XX XX XXX XXX");
+			}
+			else
+			{
+				try {
+					Salarie.testeUniciteSecu(insee,lp);
+					reussi = true;
+				} catch (ErreurSaisie e) {
+					System.out.println("le numero rentré existe déjà, veuillez en rentrer un nouveau");
+				}
+			}
+		} while (!insee.matches("\\d{13}") && reussi==false);
+		}
+		
+
+		
+		System.out.println("Salaire? (avec une ',')");
+		String sal;
+		
+		do {
+			sal = sc.nextLine();
+			if (!sal.matches("\\d{1,9}\\,\\d{2}€")){
+				System.out.println("Rentrez un salaire du type XXXXX,XX €");
+			}
+		} while (!sal.matches("\\d{1,9}\\,\\d{2}€"));
+		
+		
+		IPatron monPatron = (IPatron) new Patron(nom, prenom, adr, vil, cod, insee, sal);
+		System.out.println(monPatron);
+		lp.add((Personne) monPatron);
+		
+
+	}
+		
+
+				
+		
+	
+
 	
 
 	public static void gereclient(IClient client) {
@@ -306,39 +473,5 @@ public class Programme {
 		client.paie();
 		client.estClient();
 	}
-	
-	
-	
-	public static void testeUniciteSecu (String ns) throws MonException{
-		// boucle for pour se balader dans la liste de personne, condition p pour si on chope un Salarie,
-		// condition string ns egal au numero de secu du salarie en castant salarie et p.
-			for(Personne p:lp) {
-				if(p instanceof Salarie) {
-					if(ns.equals( ((Salarie)p).getNsecu())) throw new MonException("Numéro sécurité existe déjà : "+ ns);
-				}
-			}
-		
-	}
-	
-	public static void testeUniciteNumClient (String ns) throws MonException{
-		// boucle for pour se balader dans la liste de personne, condition p pour si on chope un Client,
-		// condition string ns egal au numero de secu du salarie en castant salarie et p.
-			for(Personne p:lp) {
-				if(p instanceof Client) {
-					if(ns.equals( ((Client)p).getNclient())) throw new MonException("Numéro Client existe déjà : "+ ns);
-				}
-			}
-		
-	}
 
-	public static void testeUniciteNumFournisseur (String ns) throws MonException{
-		// boucle for pour se balader dans la liste de personne, condition p pour si on chope un Fournisseur,
-		// condition string ns egal au numero de secu du salarie en castant salarie et p.
-			for(Personne p:lp) {
-				if(p instanceof Fournisseur) {
-					if(ns.equals( ((Fournisseur)p).getNfournisseur())) throw new MonException("Numéro Client existe déjà : "+ ns);
-				}
-			}
-		
-	}
 }

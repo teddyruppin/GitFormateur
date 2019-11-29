@@ -1,11 +1,13 @@
 package projpoo1.GestionPersonnes;
 
-import java.awt.List;
+import java.util.List;
+
+import projpoo1.GestionCommande.Achat;
 
 public interface IClient {
 	
-	public void achete(List achat);
+	public void achete(List<Achat> achat);
 	public void paie();
-	public void estClient();
+	public boolean estClient();
 
 }
