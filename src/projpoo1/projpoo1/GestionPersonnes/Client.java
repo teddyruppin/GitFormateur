@@ -81,7 +81,7 @@ public class Client extends Personne implements IFournisseur, IClient {
 	@Override
 	public boolean estFournisseur() {
 		// TODO Auto-generated method stub
-		return this.estFournisseur();
+		return this.estFournisseur;
 	}
 	
 	

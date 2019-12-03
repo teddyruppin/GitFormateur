@@ -43,6 +43,7 @@ public class Fournisseur extends Personne implements IClient, IFournisseur {
 	@Override
 	public boolean livre() {
 		// TODO Auto-generated method stub
+		System.out.println("OK livraison");
 		return this.livre();
 
 	}
@@ -85,7 +86,7 @@ public class Fournisseur extends Personne implements IClient, IFournisseur {
 	@Override
 	public boolean estFournisseur() {
 		// TODO Auto-generated method stub
-		return this.estFournisseur();
+		return this.estFournisseur;
 	}
 
 

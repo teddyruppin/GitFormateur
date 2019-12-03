@@ -1,7 +1,6 @@
 package projpoo1;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,6 +9,7 @@ import java.util.Scanner;
 
 import projpoo1.Exception.ErreurSaisie;
 import projpoo1.GestionCommande.Achat;
+import projpoo1.GestionCommande.Commande;
 import projpoo1.GestionPersonnes.Client;
 import projpoo1.GestionPersonnes.Fournisseur;
 import projpoo1.GestionPersonnes.IClient;
@@ -25,11 +25,12 @@ public class Programme {
  static Scanner sc = new Scanner(System.in);
  static List<Personne> lp = new ArrayList<Personne>();
  static List<Achat> la = new ArrayList<Achat>();
+ static List<Commande> lco = new ArrayList<Commande>();
  static List<IClient> lic = new ArrayList<IClient>();
+ static List<IFournisseur> lif = new ArrayList<IFournisseur>();
 
  
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		/**
 		IClient cl1 = new Client("cl1","CL1","","","","","","","");
 		IClient cl2 = new Fournisseur("fo1","FO1","","","","","","","");
@@ -52,23 +53,31 @@ public class Programme {
 		
 		
 		boolean x = false;
+		String persC = "";
+		String persF = "";
+
 		
 		while (x == false) {
 		
-		System.out.println("rentrer un client : 1" );
-		System.out.println("rentrer un salarié : 2" );
-		System.out.println("rentrer un fournisseur : 3" );
-		System.out.println("liste clients : 4" );
-		System.out.println("liste salariés : 5" );
-		System.out.println("liste fournisseurs : 6" );
-		System.out.println("saisir un PATRON : 7");
-		System.out.println("afficher un PATRON : 8");
-		System.out.println("liste IClient : 9");
-		System.out.println("saisir achat pour un IClient : 10");
+		System.out.println("1 : rentrer un client" );
+		System.out.println("2 : rentrer un salarié" );
+		System.out.println("3 : rentrer un fournisseur" );
+		System.out.println("4 : liste clients" );
+		System.out.println("5 : liste salariés" );
+		System.out.println("6 : liste fournisseurs" );
+		System.out.println("7 : saisir un PATRON");
+		System.out.println("8 : afficher un PATRON");
+		System.out.println("9 : liste IClient");
+		System.out.println("10 : saisir achat pour un IClient");
+		System.out.println("11 : afficher la liste d'achat avec le client");
+		System.out.println("12 : liste IFournisseur");
+		System.out.println("13 : saisir achat pour un IFournisseur");
+		System.out.println("14 : afficher la liste des commandes avec le fournisseur");
 
 		
 		System.out.println("Choix? ");
 		String choix = sc.nextLine();
+		
 		
 		switch (choix) {
 		
@@ -149,23 +158,70 @@ public class Programme {
 		case "10":
 			System.out.println("saisir achat(s) pour un IClient");
 			System.out.println("Quel IClient?");
-			String pers = sc.nextLine();
+			persC = sc.nextLine();
 			for (Personne p:lp) {
 				if (p instanceof IClient) {
 					Client cln = (Client) p;
 					if (((IClient) p).estClient()==true) {
-						if (pers.equals(cln.getNom())){	
+						if (persC.equals(cln.getNom())){	
 							achatClient(cln);
 							System.out.println(p);
+							System.out.println("pour Monsieur ou Madame: " + persC);
+
 							}
 						}
 					}
 				}
 			break;
 			
+		case "11":
+			for (Achat p:la) {
+							System.out.println(p);
+							System.out.println("pour Monsieur ou Madame: " + persC);
+					}
+			break;
+			
+		case "12":
+			System.out.println("Voici la liste des IFournisseur");
+			for (Personne p:lp) {
+				if (p instanceof IFournisseur) {
+					if (((IFournisseur) p).estFournisseur()==true) {
+						lif.add((IFournisseur) p);
+						System.out.println(p);
+					}
+				}
+			}
+			break;
+			
+		case "13":
+			System.out.println("saisir une commande pour un IFournisseur");
+			System.out.println("Quel IFournisseur?");
+			persF = sc.nextLine();
+			for (Personne p:lp) {
+				if (p instanceof IFournisseur) {
+					Fournisseur frn = (Fournisseur) p;
+					if (((IFournisseur) p).estFournisseur()==true) {
+						if (persF.equals(frn.getNom())){	
+							commandeFournisseur(frn);
+							System.out.println(p);
+							System.out.println("pour Monsieur ou Madame: " + persF);
+							}
+						}
+					}
+				}
+			break;
+			
+		case "14":
+			for (Commande p:lco) {
+							System.out.println(p);
+							System.out.println("pour Monsieur ou Madame: " + persF);
+					}
+			break;
+			
 		default:
 			System.out.println("Rentrer une valeur proposée");
 			break;
+			
 			
 		}
 		
@@ -248,7 +304,6 @@ public class Programme {
 	
 	
 
-//////////////////////////////////////////////////////////
 		
 
 	
@@ -257,7 +312,7 @@ public class Programme {
 		la.clear();
 		while (sorti == false) {
 			System.out.println("Nom de l'article? ");
-			String nom = sc.nextLine();
+			String nom = sc.next();
 
 			System.out.println("Quantite de l'article? ");
 			int qte = sc.nextInt();
@@ -274,7 +329,7 @@ public class Programme {
 			
 			
 			Achat monAchat = new Achat(nom, qte, dt); 
-			System.out.println(monAchat);
+			System.out.println(monAchat + "\n");
 			la.add((Achat)monAchat);
 			
 			System.out.println("avez vous d'autres achats a faire? oui/non");
@@ -282,10 +337,52 @@ public class Programme {
 			if (st.equals("non")) {
 				sorti = true;
 			}
-			
 		}
 		cl.achete(la);
 	}
+	
+	
+	
+	public static void commandeFournisseur(IFournisseur fr) {
+		boolean sorti = false;
+		lco.clear();
+		while (sorti == false) {
+			System.out.println("Nom de la commande? ");
+			String nom = sc.next();
+
+			System.out.println("Quantite de l'article? ");
+			int qte = sc.nextInt();
+		
+			System.out.println("Date de l'achat? (format jj/mm/aaaa)  ");
+			String date = sc.next();
+			Date dt = new Date();
+			try {
+				dt = Programme.verifDate(date);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+			
+			Commande maCommande = new Commande(nom, qte, dt); 
+			System.out.println(maCommande + "\n");
+			lco.add((Commande)maCommande);
+			
+			System.out.println("avez vous d'autres commande a faire? oui/non");
+			String st = sc.next();
+			if (st.equals("non")) {
+				sorti = true;
+			}
+		}
+		fr.commande(lco);
+	}
+	
+	
+	
+	
+	
+//////////////////////////////////////////////////////////
+
 	
 
 	// 2
