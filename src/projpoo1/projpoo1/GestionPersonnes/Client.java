@@ -12,6 +12,7 @@ public class Client extends Personne implements IFournisseur, IClient {
 	private String Nclient;
 	private boolean estClient;
 	private boolean estFournisseur;
+	private boolean paie;
 	private List<Achat> listeAchat;
 
 	static Scanner sc = new Scanner(System.in);
@@ -74,6 +75,8 @@ public class Client extends Personne implements IFournisseur, IClient {
 		return this.estClient;
 
 	}
+	
+
 	
 	@Override
 	public boolean estFournisseur() {

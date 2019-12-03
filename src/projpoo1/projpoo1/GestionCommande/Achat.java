@@ -1,13 +1,15 @@
 package projpoo1.GestionCommande;
 
+import java.util.Date;
+
 public class Achat {
 
 	private String intitule;
 	private int quantite;
-	private String date;
+	private Date date;
 	
 	
-	public Achat(String intitule, int quantite, String date) {
+	public Achat(String intitule, int quantite, Date date) {
 		super();
 
 		this.intitule = intitule;
@@ -24,11 +26,11 @@ public class Achat {
 
 
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 	
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	
@@ -47,6 +49,13 @@ public class Achat {
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
+	/*
+	public void verifDate(String date) throws Exception {
+		if () {
+			
+		}
+		
+	}*/
 
 	
 

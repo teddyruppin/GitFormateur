@@ -1,8 +1,12 @@
 package projpoo1;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
 
 import projpoo1.Exception.ErreurSaisie;
 import projpoo1.GestionCommande.Achat;
@@ -143,7 +147,20 @@ public class Programme {
 			break;
 			
 		case "10":
-			System.out.println("saisir achat pour un IClient");
+			System.out.println("saisir achat(s) pour un IClient");
+			System.out.println("Quel IClient?");
+			String pers = sc.nextLine();
+			for (Personne p:lp) {
+				if (p instanceof IClient) {
+					Client cln = (Client) p;
+					if (((IClient) p).estClient()==true) {
+						if (pers.equals(cln.getNom())){	
+							achatClient(cln);
+							System.out.println(p);
+							}
+						}
+					}
+				}
 			break;
 			
 		default:
@@ -228,6 +245,9 @@ public class Programme {
 	
 	
 //////////////////////////////////////////////////////////
+	
+	
+
 //////////////////////////////////////////////////////////
 		
 
@@ -242,10 +262,18 @@ public class Programme {
 			System.out.println("Quantite de l'article? ");
 			int qte = sc.nextInt();
 		
-			System.out.println("Date de l'achat? ");
+			System.out.println("Date de l'achat? (format jj/mm/aaaa)  ");
 			String date = sc.next();
+			Date dt = new Date();
+			try {
+				dt = Programme.verifDate(date);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
-			Achat monAchat = new Achat(nom, qte, date); 
+			
+			
+			Achat monAchat = new Achat(nom, qte, dt); 
 			System.out.println(monAchat);
 			la.add((Achat)monAchat);
 			
@@ -462,10 +490,15 @@ public class Programme {
 	}
 		
 
-				
+	public static Date verifDate(String date) throws Exception {
 		
-	
-
+		SimpleDateFormat format = new SimpleDateFormat();
+		format.applyPattern("dd/MM/yyyy");
+		format.setLenient(false);
+		Date date1 = format.parse(date);
+		return date1;
+	}
+			
 	
 
 	public static void gereclient(IClient client) {
