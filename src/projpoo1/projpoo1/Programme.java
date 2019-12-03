@@ -71,7 +71,7 @@ public class Programme {
 		System.out.println("10 : saisir achat pour un IClient");
 		System.out.println("11 : afficher la liste d'achat avec le client");
 		System.out.println("12 : liste IFournisseur");
-		System.out.println("13 : saisir achat pour un IFournisseur");
+		System.out.println("13 : saisir commande pour un IFournisseur");
 		System.out.println("14 : afficher la liste des commandes avec le fournisseur");
 
 		
@@ -157,14 +157,14 @@ public class Programme {
 			
 		case "10":
 			System.out.println("saisir achat(s) pour un IClient");
-			System.out.println("Quel IClient?");
+			System.out.println("Quel Personne?");
 			persC = sc.nextLine();
 			for (Personne p:lp) {
 				if (p instanceof IClient) {
-					Client cln = (Client) p;
+					Personne cln = (Personne) p;
 					if (((IClient) p).estClient()==true) {
 						if (persC.equals(cln.getNom())){	
-							achatClient(cln);
+							achatClient((IClient)p);
 							System.out.println(p);
 							System.out.println("pour Monsieur ou Madame: " + persC);
 
@@ -195,14 +195,14 @@ public class Programme {
 			
 		case "13":
 			System.out.println("saisir une commande pour un IFournisseur");
-			System.out.println("Quel IFournisseur?");
+			System.out.println("Quel Personne?");
 			persF = sc.nextLine();
 			for (Personne p:lp) {
 				if (p instanceof IFournisseur) {
-					Fournisseur frn = (Fournisseur) p;
+					Personne frn = (Personne) p;
 					if (((IFournisseur) p).estFournisseur()==true) {
 						if (persF.equals(frn.getNom())){	
-							commandeFournisseur(frn);
+							commandeFournisseur((IFournisseur)frn);
 							System.out.println(p);
 							System.out.println("pour Monsieur ou Madame: " + persF);
 							}
