@@ -9,7 +9,8 @@ public class Salarie extends Personne implements IClient {
 
 	private String Nsecu;
 	private String salaire;
-	private boolean estClient;
+	private boolean estClient = true;
+	private List<Achat> listeAchat;
 
 	public Salarie(String nom, String prenom, String adresse, String ville, String codepostal, String Nsecu, String salaire) {
 		super(nom, prenom, adresse, ville, codepostal);
@@ -20,15 +21,13 @@ public class Salarie extends Personne implements IClient {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "Salarié :" + super.toString() + " / Numero de sécurité social=" + Nsecu + " / Salaire du salarié=" + salaire +" €" +"]";
 	}
 	
 
-
 	@Override
-	public void achete(List<Achat> achat) {
-
+	public void achete(List<Achat> Achat) {
+		this.listeAchat = Achat;
 	}
 
 	@Override
@@ -38,7 +37,7 @@ public class Salarie extends Personne implements IClient {
 	}
 	
 	public boolean estClient() {
-		return this.estClient();
+		return this.estClient;
 	}
 
 
@@ -58,6 +57,11 @@ public class Salarie extends Personne implements IClient {
 	public String getSalaire() {
 		return salaire;
 	}
+	
+	
+	public List<Achat> getListeAchat() {
+		return listeAchat;
+	}
 
 
 
@@ -76,4 +80,7 @@ public class Salarie extends Personne implements IClient {
 			}
 
 	}
+
+
+	
 }

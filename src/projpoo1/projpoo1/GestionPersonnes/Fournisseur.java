@@ -11,6 +11,9 @@ public class Fournisseur extends Personne implements IClient, IFournisseur {
 	private String Nfournisseur;
 	private boolean estClient;
 	private boolean estFournisseur;
+	
+	private List<Achat> listeAchat;
+	private List<Commande> listeCommande;
 
 	public Fournisseur(String nom, String prenom, String adresse, String ville, String codepostal, String Nfournisseur, Boolean estClient, Boolean estFournisseur) {
 		super(nom, prenom, adresse, ville, codepostal);
@@ -27,30 +30,23 @@ public class Fournisseur extends Personne implements IClient, IFournisseur {
 	}
 
 	@Override
-	public void achete(List<Achat> achat) {
-		// TODO Auto-generated method stub
-		System.out.println("Fournisseur achete");
-
+	public void achete(List<Achat> Achat) {
+		this.listeAchat = Achat;
 	}
 
 	@Override
 	public void paie() {
-		// TODO Auto-generated method stub
-		System.out.println("OK paiement");
 		this.paie();
 	}
 
 	@Override
 	public boolean livre() {
-		// TODO Auto-generated method stub
-		System.out.println("OK livraison");
-		return this.livre();
-
+		return true;
 	}
 
 	@Override
-	public void commande(List<Commande> commande) {
-		// TODO Auto-generated method stub
+	public void commande(List<Commande> Commande) {
+		this.listeCommande = Commande;
 		
 	}
 	
@@ -67,10 +63,23 @@ public class Fournisseur extends Personne implements IClient, IFournisseur {
 
 	@Override
 	public boolean estClient() {
-		// TODO Auto-generated method stub
 		return estClient;
 		
 	}
+	
+	@Override
+	public boolean estFournisseur() {
+		return this.estFournisseur;
+	}
+
+	public List<Commande> getListeCommandes() {
+		return listeCommande;
+	}
+	
+	public List<Achat> getListeAchat() {
+		return listeAchat;
+	}
+	
 	
 	public static void testeUniciteNumFournisseur (String ns, List<Personne> l) throws ErreurSaisie{
 		// boucle for pour se balader dans la liste de personne, condition p pour si on chope un Fournisseur,
@@ -83,11 +92,7 @@ public class Fournisseur extends Personne implements IClient, IFournisseur {
 		
 	}
 
-	@Override
-	public boolean estFournisseur() {
-		// TODO Auto-generated method stub
-		return this.estFournisseur;
-	}
+
 
 
 

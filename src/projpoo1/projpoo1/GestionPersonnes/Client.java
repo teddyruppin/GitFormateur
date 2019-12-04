@@ -12,8 +12,9 @@ public class Client extends Personne implements IFournisseur, IClient {
 	private String Nclient;
 	private boolean estClient;
 	private boolean estFournisseur;
-	private boolean paie;
+	//private boolean paie;
 	private List<Achat> listeAchat;
+	private List<Commande> listeCommande;
 
 	static Scanner sc = new Scanner(System.in);
 	
@@ -27,27 +28,22 @@ public class Client extends Personne implements IFournisseur, IClient {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "Client :" + super.toString() + " / Numero client=" + Nclient + " / estClient=" + estClient +  " / estFournisseur=" + estFournisseur + "]";
 	}
 
 	@Override
 	public boolean livre() {
-		// TODO Auto-generated method stub
-		return this.livre();
-
+		return true;
 	}
 
 	@Override
-	public void commande(List<Commande> commande) {
-		// TODO Auto-generated method stub
-		
+	public void commande(List<Commande> Commande) {
+		this.listeCommande = Commande;
 	}
 
 	@Override
-	public void achete(List<Achat> achat) {
-		return;
-
+	public void achete(List<Achat> Achat) {
+		this.listeAchat = Achat;
 	}
 
 	@Override
@@ -55,7 +51,6 @@ public class Client extends Personne implements IFournisseur, IClient {
 		// TODO Auto-generated method stub
 		System.out.println("OK paiement");
 		this.paie();
-
 	}
 	
 
@@ -89,6 +84,10 @@ public class Client extends Personne implements IFournisseur, IClient {
 		return listeAchat;
 	}
 	
+	public List<Commande> getListeCommandes(){
+		return listeCommande;
+	}
+	
 	
 	public static void testeUniciteNumClient (String ns, List<Personne> l) throws ErreurSaisie{
 		// boucle for pour se balader dans la liste de personne, condition p pour si on chope un Client,
@@ -100,11 +99,5 @@ public class Client extends Personne implements IFournisseur, IClient {
 			}
 		
 	}
-
-
-
-
-
-
 
 }

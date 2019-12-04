@@ -11,10 +11,7 @@ public class Personne {
 		private String ville;
 		private String codepostal;
 
-
-
 		
-	
 		/**
 		public Personne() {
 			//constructor

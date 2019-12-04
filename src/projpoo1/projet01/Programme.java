@@ -119,7 +119,7 @@ public class Programme {
 	
 	public void atelier05() {
 		byte a = 127;
-		short b = 32767;
+		//short b = 32767;
 		//b=a; byte vers short OK
 		//a=b; short vers byte PAS OK
 		System.out.println(a);

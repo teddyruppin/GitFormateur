@@ -24,19 +24,19 @@ public class Patron extends Salarie implements IPatron {
 	@Override
 	public void embauche() {
 		// TODO Auto-generated method stub
-
+		this.embauche();
 	}
 
 	@Override
 	public void licencie() {
 		// TODO Auto-generated method stub
-
+		this.licencie();
 	}
 
 	@Override
 	public void paieSalarie() {
 		// TODO Auto-generated method stub
-		
+		this.paieSalarie();
 	}
 
 }
