@@ -1,10 +1,21 @@
 package projpoo1.GestionPersonnes;
 
+import java.io.Serializable;
 
+/**
+ * 
+ * @author Teddy RUPPIN
+ * @version 1.0
+ * <b> JavaDoc pour la POE lYON 2019 </b>
+ *
+ */
 
-
-public class Personne {
-		// TODO Auto-generated constructor stub
+public class Personne implements Serializable {
+	
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 		private String nom;
 		private String prenom;
 		private String adresse;
@@ -13,19 +24,16 @@ public class Personne {
 
 		
 		/**
-		public Personne() {
-			//constructor
-			this.adresse="";
-			this.codepostal="";
-			this.nom="";
-			this.prenom="";
-			this.ville="";
+		 * Constructeur de la classe Personne
+		 * 
+		 * @param nom
+		 * @param prenom
+		 * @param adresse
+		 * @param ville
+		 * @param codepostal
+		 * 
+		 */
 			
-			this("","","","",""); // remplace les this. 
-		}
-		
-*/		
-
 		public Personne(String nom, String prenom, String adresse, String ville, String codepostal) {
 			super();
 			this.nom = nom;
@@ -46,6 +54,10 @@ public class Personne {
 
 
 
+		/**
+		 * 
+		 * @return <b> retourne le nom </b>
+		 */
 		public String getNom() {
 			return nom;
 		}
