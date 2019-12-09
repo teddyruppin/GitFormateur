@@ -3,11 +3,11 @@ package projpoo1.GestionPersonnes;
 import java.util.List;
 import java.util.Scanner;
 
-import projpoo1.Programme;
 import projpoo1.Exception.ErreurSaisie;
-import projpoo1.GestionCommande.Achat;
+import projpoo1.GestionAchatCommande.Achat;
+import projpoo1.verif.Verifications;
 
-public class Salarie extends Personne implements IClient {
+public class Salarie extends Personne implements IClient, IPatron {
 
 	/**
 	 * 
@@ -41,7 +41,7 @@ public class Salarie extends Personne implements IClient {
 		System.out.println("Code postal? ");
 		String cod = "";
 		try {
-			Programme.verifCodePostal(cod);
+			cod = Verifications.verifCodePostal();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -49,7 +49,7 @@ public class Salarie extends Personne implements IClient {
 		System.out.println("Numero de s�curite social? ");
 		String insee = "";
 		try {
-			Programme.verifNumeroSecuriteSocial(insee);
+			insee = Verifications.verifNumeroSecuriteSocial();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -57,7 +57,7 @@ public class Salarie extends Personne implements IClient {
 		System.out.println("Salaire? (avec une ',')");
 		String sal = "";
 		try {
-			Programme.verifSalaire(sal);
+			sal = Verifications.verifSalaire();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -69,8 +69,8 @@ public class Salarie extends Personne implements IClient {
 
 	@Override
 	public String toString() {
-		return "Salari� :" + super.toString() + " / Numero de s�curit� social=" + Nsecu + " / Salaire du salari�="
-				+ salaire + " �" + "]";
+		return "Salarié :" + super.toString() + " / Numero de sécurité social = " + Nsecu + " / Salaire du salarié = "
+				+ salaire + " €" + "]";
 	}
 
 	@Override
@@ -121,6 +121,24 @@ public class Salarie extends Personne implements IClient {
 
 		}
 
+	}
+
+	@Override
+	public void embauche() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void paieSalarie() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void licencie() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

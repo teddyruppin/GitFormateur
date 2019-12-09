@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import projpoo1.GestionCommande.Achat;
+import projpoo1.GestionAchatCommande.Achat;
 import projpoo1.GestionPersonnes.Salarie;
 
 public class TestSalarie {
@@ -21,7 +21,7 @@ public class TestSalarie {
 	private final String oville = "le bourget du lac";
 	private final String ocodepostal = "73370";
 	private final String onsecu = "0123456789123";
-	private final String osalaire = "1234,25€";
+	private final String osalaire = "1234,25ï¿½";
 	private final Boolean oestclient = true;
 	//private final Boolean oachete = true;
 	

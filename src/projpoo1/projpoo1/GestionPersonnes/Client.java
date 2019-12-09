@@ -3,17 +3,16 @@ package projpoo1.GestionPersonnes;
 import java.util.List;
 import java.util.Scanner;
 
-import projpoo1.Programme;
 import projpoo1.Exception.ErreurSaisie;
-import projpoo1.GestionCommande.Achat;
-import projpoo1.GestionCommande.Commande;
+import projpoo1.GestionAchatCommande.Achat;
+import projpoo1.GestionAchatCommande.Commande;
+import projpoo1.verif.Verifications;
 
 public class Client extends Personne implements IFournisseur, IClient {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	public static Scanner sc = new Scanner(System.in);
+	
 	private String Nclient;
 	private boolean estClient;
 	private boolean estFournisseur;
@@ -44,16 +43,18 @@ public class Client extends Personne implements IFournisseur, IClient {
 
 		System.out.println("Code postal? ");
 		String cod = "";
+		
 		try {
-			Programme.verifCodePostal(cod);
+			cod = Verifications.verifCodePostal();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-
+		System.out.println(cod);
 		System.out.println("Numero de client? ");
 		String nc = "";
+		
 		try {
-			Programme.verifNumeroClient(nc);
+			nc = Verifications.verifNumeroClient();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

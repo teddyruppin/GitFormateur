@@ -10,8 +10,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import projpoo1.GestionCommande.Achat;
-import projpoo1.GestionCommande.Commande;
+import projpoo1.GestionAchatCommande.Achat;
+import projpoo1.GestionAchatCommande.Commande;
 import projpoo1.GestionPersonnes.Fournisseur;
 
 public class TestFournisseur {

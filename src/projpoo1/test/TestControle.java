@@ -10,18 +10,18 @@ import java.util.List;
 
 import org.junit.Test;
 
-import projpoo1.Programme;
 import projpoo1.GestionPersonnes.Client;
 import projpoo1.GestionPersonnes.Fournisseur;
 import projpoo1.GestionPersonnes.Personne;
 import projpoo1.GestionPersonnes.Salarie;
+import projpoo1.verif.Verifications;
 
 public class TestControle {
 
 	@Test
 	public void testVerifDate() {
 		try {
-			assertTrue(Programme.verifDate("10/12/2019") instanceof Date);
+			assertTrue(Verifications.verifDate("10/12/2019") instanceof Date);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

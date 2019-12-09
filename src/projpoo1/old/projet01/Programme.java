@@ -1,4 +1,4 @@
-package projet01;
+package old.projet01;
 
 import java.util.Arrays;
 //import java.util.Date;
@@ -74,7 +74,7 @@ public class Programme {
 		String prenom = sc.nextLine();
 		System.out.println("Age svp?");
 		String age = sc.nextLine();
-		System.out.println("votre nom est " + nom + ", votre prénom est " + prenom + " et vous avez " + age + " ans.");
+		System.out.println("votre nom est " + nom + ", votre prï¿½nom est " + prenom + " et vous avez " + age + " ans.");
 		sc.close();
 	}
 	

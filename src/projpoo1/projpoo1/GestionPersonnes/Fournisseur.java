@@ -3,10 +3,10 @@ package projpoo1.GestionPersonnes;
 import java.util.List;
 import java.util.Scanner;
 
-import projpoo1.Programme;
 import projpoo1.Exception.ErreurSaisie;
-import projpoo1.GestionCommande.Achat;
-import projpoo1.GestionCommande.Commande;
+import projpoo1.GestionAchatCommande.Achat;
+import projpoo1.GestionAchatCommande.Commande;
+import projpoo1.verif.Verifications;
 
 public class Fournisseur extends Personne implements IClient, IFournisseur {
 
@@ -47,7 +47,7 @@ public class Fournisseur extends Personne implements IClient, IFournisseur {
 		System.out.println("Code postal? ");
 		String cod = "";
 		try {
-			Programme.verifCodePostal(cod);
+			cod = Verifications.verifCodePostal();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -55,7 +55,7 @@ public class Fournisseur extends Personne implements IClient, IFournisseur {
 		System.out.println("Numero de fournisseur? ");
 		String nfourni = "";
 		try {
-			Programme.verifNumeroFournisseur(nfourni);
+			nfourni = Verifications.verifNumeroFournisseur();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -2,7 +2,7 @@ package projpoo1.GestionPersonnes;
 
 import java.util.List;
 
-import projpoo1.GestionCommande.Commande;
+import projpoo1.GestionAchatCommande.Commande;
 
 public interface IFournisseur {
 	

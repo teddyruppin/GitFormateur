@@ -1,54 +1,59 @@
-package Base_POO;
+package old.Base_POO;
 
-public class Carapuce {
+// creation de la classe Bulbizarre 
+
+public class Bulbizarre {
 	private String nomPokemon;
 	private String typePokemon;
 	private Integer pointdeviePokemon;
 	private String faiblessePokemon;
 	private static Integer nombre = 0;
 	
-	
-	
-	
-	public Carapuce() {
-		super();
-
+	/**
+	@Override
+	public String toString() {
+		return "Bulbizarre [nomPokemon=" + nomPokemon + ", typePokemon=" + typePokemon + ", pointdeviePokemon="
+				+ pointdeviePokemon + "]";
 	}
+	*/
+	
+		
 
-	public Carapuce(String nomPokemon, String typePokemon, Integer pointdeviePokemon, String faiblessePokemon) {
+	public Bulbizarre(String nomPokemon, String typePokemon, Integer pointdeviePokemon, String faiblessePokemon) {
 		super();
 		this.nomPokemon = nomPokemon;
 		this.typePokemon = typePokemon;
 		this.pointdeviePokemon = pointdeviePokemon;
 		this.faiblessePokemon = faiblessePokemon;
-		Carapuce.nombre = nombre + 1;
-
+		Bulbizarre.nombre = nombre + 1;
 	}
+
 
 	public String getNomPokemon() {
 		return nomPokemon;
 	}
-	
+
 	public void setNomPokemon(String nomPokemon) {
 		this.nomPokemon = nomPokemon;
 	}
-	
+
 	public String getTypePokemon() {
 		return typePokemon;
 	}
-	
+
 	public void setTypePokemon(String typePokemon) {
 		this.typePokemon = typePokemon;
 	}
-	
+
 	public Integer getPointdeviePokemon() {
 		return pointdeviePokemon;
 	}
-	
+
 	public void setPointdeviePokemon(Integer pointdeviePokemon) {
 		this.pointdeviePokemon = pointdeviePokemon;
 	}
-
+	
+	
 	public String getFaiblessePokemon() {
 		return faiblessePokemon;
 	}
@@ -58,10 +63,10 @@ public class Carapuce {
 	}
 	
 	public void attaque() {
-		System.out.println("carapuce! attaque tsunamamie!");
+		System.out.println("bulbizarre! attaque lianefolie!");
 	}
 
 	public static void increment() {
-		System.out.println("vous avez cree: " + nombre + " carapuce.");
+		System.out.println("vous avez cree: " + nombre + " bulbizarre.");
 	}
 }

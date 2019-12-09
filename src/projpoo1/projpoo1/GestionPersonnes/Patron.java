@@ -3,7 +3,7 @@ package projpoo1.GestionPersonnes;
 import java.util.List;
 import java.util.Scanner;
 
-import projpoo1.Programme;
+import projpoo1.verif.Verifications;
 
 public class Patron extends Salarie implements IPatron {
 
@@ -11,14 +11,12 @@ public class Patron extends Salarie implements IPatron {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String Nsecu;
-	private String salaire;
+
 
 	public Patron(String nom, String prenom, String adresse, String ville, String codepostal, String Nsecu,
 			String salaire) {
 		super(nom, prenom, adresse, ville, codepostal, Nsecu, salaire);
-		this.Nsecu = Nsecu;
-		this.salaire = salaire;
+
 	}
 
 	public static void saisirPatron(Scanner sc, List<Personne> lp) {
@@ -37,7 +35,7 @@ public class Patron extends Salarie implements IPatron {
 		System.out.println("Code postal? ");
 		String cod = "";
 		try {
-			Programme.verifCodePostal(cod);
+			cod = Verifications.verifCodePostal();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -45,7 +43,7 @@ public class Patron extends Salarie implements IPatron {
 		System.out.println("Numero de s�curite social? ");
 		String insee = "";
 		try {
-			Programme.verifNumeroSecuriteSocial(insee);
+			insee = Verifications.verifNumeroSecuriteSocial();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,7 +51,7 @@ public class Patron extends Salarie implements IPatron {
 		System.out.println("Salaire? (avec une ',')");
 		String sal = "";
 		try {
-			Programme.verifSalaire(sal);
+			sal = Verifications.verifSalaire();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -66,7 +64,7 @@ public class Patron extends Salarie implements IPatron {
 
 	@Override
 	public String toString() {
-		return "Patron " + super.toString() + "[Nsecu=" + Nsecu + ", salaire=" + salaire + "]";
+		return "Patron " + super.toString();
 	}
 
 	@Override

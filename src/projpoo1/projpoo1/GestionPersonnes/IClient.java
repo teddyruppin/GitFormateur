@@ -2,7 +2,7 @@ package projpoo1.GestionPersonnes;
 
 import java.util.List;
 
-import projpoo1.GestionCommande.Achat;
+import projpoo1.GestionAchatCommande.Achat;
 
 public interface IClient {
 	
