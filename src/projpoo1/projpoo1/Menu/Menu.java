@@ -22,7 +22,7 @@ public class Menu {
 	public static Scanner sc = null;
 
 	static List<Achat> la = new ArrayList<Achat>();
-	static List<Personne> lp = new ArrayList<Personne>();
+	public static List<Personne> lp = new ArrayList<Personne>();
 	static List<Commande> lco = new ArrayList<Commande>();
 	static List<IClient> lic = new ArrayList<IClient>();
 	static List<IFournisseur> lif = new ArrayList<IFournisseur>();
@@ -30,7 +30,7 @@ public class Menu {
 	private static String choixt = null;
 
 	public static void quitter() {
-
+		System.exit(0);
 	}
 
 	public static void menu() {
@@ -50,7 +50,7 @@ public class Menu {
 		System.out.println("---------------------------------");
 
 		while (true) {
-			choixt = sc.next();
+			choixt = sc.nextLine();
 
 			menu.entrySet().stream().filter(e -> e.getKey().charAt(0) == choixt.charAt(0))
 					.forEach(e -> e.getValue().apply());
@@ -72,7 +72,7 @@ public class Menu {
 		System.out.println("---------------------------------");
 
 		while (true) {
-			choixt = sc.next();
+			choixt = sc.nextLine();
 
 			menu.entrySet().stream().filter(e -> e.getKey().charAt(0) == choixt.charAt(0))
 					.forEach(e -> e.getValue().apply());
@@ -104,7 +104,7 @@ public class Menu {
 		System.out.println("---------------------------------");
 
 		while (true) {
-			choixt = sc.next();
+			choixt = sc.nextLine();
 
 			menu.entrySet().stream().filter(e -> e.getKey().charAt(0) == choixt.charAt(0))
 					.forEach(e -> e.getValue().apply());
@@ -125,7 +125,7 @@ public class Menu {
 		System.out.println("---------------------------------");
 
 		while (true) {
-			choixt = sc.next();
+			choixt = sc.nextLine();
 
 			menu.entrySet().stream().filter(e -> e.getKey().charAt(0) == choixt.charAt(0))
 					.forEach(e -> e.getValue().apply());

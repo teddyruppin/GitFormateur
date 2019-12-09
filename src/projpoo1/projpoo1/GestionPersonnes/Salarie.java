@@ -46,7 +46,7 @@ public class Salarie extends Personne implements IClient, IPatron {
 			e1.printStackTrace();
 		}
 
-		System.out.println("Numero de s�curite social? ");
+		System.out.println("Numero de sécurite social? ");
 		String insee = "";
 		try {
 			insee = Verifications.verifNumeroSecuriteSocial();

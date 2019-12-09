@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import projpoo1.GestionPersonnes.Personne;
+import projpoo1.Menu.Menu;
 
 public class Serialisation {
 
@@ -18,7 +19,7 @@ public class Serialisation {
 
 		FileOutputStream fos = new FileOutputStream(nomFichier + ".ser");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(lp);
+		oos.writeObject(Menu.lp);
 		oos.flush();
 		oos.close();
 	}
@@ -28,7 +29,7 @@ public class Serialisation {
 
 		FileInputStream fis = new FileInputStream(nomFichier + ".ser");
 		ObjectInputStream ois = new ObjectInputStream(fis);
-		lp = (List<Personne>) ois.readObject();
+		Menu.lp = (List<Personne>) ois.readObject();
 		ois.close();
 	}
 

@@ -43,10 +43,10 @@ public class Verifications {
 		String sal;
 		do {
 			sal = sc.next();
-			if (!sal.matches("\\d{1,9}\\,\\d{2}")) {
-				System.out.println("Rentrez un salaire du type XXXXX,XX");
+			if (!sal.matches("\\d{1,9}\\,\\d{2}€")) {
+				System.out.println("Rentrez un salaire du type XXXXX,XX€");
 			}
-		} while (!sal.matches("\\d{1,9}\\,\\d{2}"));
+		} while (!sal.matches("\\d{1,9}\\,\\d{2}€"));
 		return sal;
 	}
 
