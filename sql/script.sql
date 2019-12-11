@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `r_piece_stock` (
 
 CREATE TABLE IF NOT EXISTS `stockPieces` (
 	`idStockPieces` int(10) NOT NULL AUTO_INCREMENT,
-	`quantite` int(1000) DEFAULT,
+	`quantite` int(250) DEFAULT NULL,
 	PRIMARY KEY (`idStockPieces`)
 )	ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `stockPieces` (
 CREATE TABLE IF NOT EXISTS `piece` (
 	`idPiece` int(10) NOT NULL AUTO_INCREMENT,
 	`nomPiece` char(100) DEFAULT NULL,
-	`quantite` int(1000) DEFAULT NULL,
+	`quantite` int(250) DEFAULT NULL,
 	`prixHT` decimal(10,2) DEFAULT NULL,
 	`idFiche` int(10) NOT NULL,
 	PRIMARY KEY (`idPiece`),
@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `voiture` (
 	`idVoiture` int(10) NOT NULL AUTO_INCREMENT,
 	`marque` char(100) DEFAULT NULL,
 	`modele` char(100) DEFAULT NULL,
-	`quantite` int(1000) DEFAULT NULL,
+	`quantite` int(250) DEFAULT NULL,
 	`prixHT` decimal(10,2) DEFAULT NULL,
 	`idDevis` int(10) NOT NULL,
 	PRIMARY KEY (`idVoiture`),
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `voiture` (
 
 CREATE TABLE IF NOT EXISTS `commandeVoiture` (
 	`idCommandeV` int(10) NOT NULL AUTO_INCREMENT,
-	`quantite` int(1000) DEFAULT NULL,
+	`quantite` int(250) DEFAULT NULL,
 	`prixHT` decimal(10,2) DEFAULT NULL,
 	`idVoiture` int(10) NOT NULL,
 	PRIMARY KEY (`idCommandeV`)
@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `commandeVoiture` (
 CREATE TABLE IF NOT EXISTS `r_voiture_stock` (
 	`idStockVoitures` int(10) NOT NULL ,
 	`idVoiture` int(10) NOT NULL ,
-	CONSTRAINT r_voiture_stock1 PRIMARY KEY (`idStockVoiture`, `idVoiture`)
+	CONSTRAINT r_voiture_stock1 PRIMARY KEY (`idStockVoitures`, `idVoiture`)
 )	ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `r_voiture_stock` (
 
 CREATE TABLE IF NOT EXISTS `stockVoiture` (
 	`idStockVoitures` int(10) NOT NULL AUTO_INCREMENT,
-	`quantite` int(1000) DEFAULT,
+	`quantite` int(250) DEFAULT NULL,
 	PRIMARY KEY (`idStockVoitures`)
 )	ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -262,10 +262,10 @@ ALTER TABLE `voiture`
 -- Contraintes pour la table `client`
 --
 ALTER TABLE `client`
-	FOREIGN KEY (`idDevis`) REFERENCES `devis` (`idDevis`);
+	ADD FOREIGN KEY (`idDevis`) REFERENCES `devis` (`idDevis`);
   
 ALTER TABLE `client` 
-	FOREIGN KEY (`idFiche`) REFERENCES `fiche` (`idFiche`);
+	ADD FOREIGN KEY (`idFiche`) REFERENCES `fiche` (`idFiche`);
 	
 	
 	
@@ -273,58 +273,52 @@ ALTER TABLE `client`
 -- Contraintes pour la table `commandePiece`
 --
 ALTER TABLE `commandePiece`
-	FOREIGN KEY (`idPieces`) REFERENCES `piece` (`idPiece`);
+	ADD FOREIGN KEY (`idPieces`) REFERENCES `piece` (`idPiece`);
 	
 	
 --
 -- Contraintes pour la table `tache`
 --
 ALTER TABLE `tache`
-	FOREIGN KEY (`idFiche`) REFERENCES `fiche` (`idFiche`);
+	ADD FOREIGN KEY (`idFiche`) REFERENCES `fiche` (`idFiche`);
 
 --
 -- Contraintes pour la table `fiche`
 --
 ALTER TABLE `fiche`
-	FOREIGN KEY (`idFactureFiche`) REFERENCES `factureFiche` (`idFactureFiche`);
+	ADD FOREIGN KEY (`idFactureFiche`) REFERENCES `factureFiche` (`idFactureFiche`);
 	
 	
 --
 -- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
-	FOREIGN KEY (`idTache`) REFERENCES `tache` (`idTache`);
+	ADD FOREIGN KEY (`idTache`) REFERENCES `tache` (`idTache`);
 
 ALTER TABLE `users`
-	FOREIGN KEY (`idDevis`) REFERENCES `devis` (`idDevis`);
+	ADD FOREIGN KEY (`idDevis`) REFERENCES `devis` (`idDevis`);
 
 	
---
--- Contraintes pour la table `commandePiece`
---
-ALTER TABLE `commandePiece`
-	FOREIGN KEY (`idPieces`) REFERENCES `piece` (`idPiece`);	
-	
-	
+
 --
 -- Contraintes pour la table `devis`
 --
 ALTER TABLE `devis`
-	FOREIGN KEY (`idFactureDevis`) REFERENCES `factureDevis` (`idFactureDevis`);
+	ADD FOREIGN KEY (`idFactureDevis`) REFERENCES `factureDevis` (`idFactureDevis`);
 	
 	
 --
 -- Contraintes pour la table `voiture`
 --
-ALTER TABLE `voitures`
-	FOREIGN KEY (`idDevis`) REFERENCES `devis` (`idDevis`);	
+ALTER TABLE `voiture`
+	ADD FOREIGN KEY (`idDevis`) REFERENCES `devis` (`idDevis`);	
 	
 	
 --
 -- Contraintes pour la table `commandeVoiture`
 --
 ALTER TABLE `commandeVoiture`
-	FOREIGN KEY (`idVoiture`) REFERENCES `voitures` (`idVoiture`);
+	ADD FOREIGN KEY (`idVoiture`) REFERENCES `voiture` (`idVoiture`);
 	
 	
 	
