@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `voiture` (
 	`modele` char(100) DEFAULT NULL,
 	`quantite` int(250) DEFAULT NULL,
 	`prixHT` decimal(10,2) DEFAULT NULL,
-	`idDevis` int(10) NOT NULL,
+	`idDevis` int(10) DEFAULT NULL,
 	PRIMARY KEY (`idVoiture`),
 	KEY `voiture_1` (`idDevis`)
 )	ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -320,6 +320,17 @@ ALTER TABLE `voiture`
 ALTER TABLE `commandeVoiture`
 	ADD FOREIGN KEY (`idVoiture`) REFERENCES `voiture` (`idVoiture`);
 	
+	
+	
+--
+-- Contraintes pour la table `r_voiture_stock`
+--
+ALTER TABLE `r_voiture_stock`
+	ADD FOREIGN KEY (`idVoiture`) REFERENCES `voiture` (`idVoiture`);
+
+ALTER TABLE `r_voiture_stock`
+	ADD FOREIGN KEY (`idStockVoitures`) REFERENCES `stockVoiture` (`idStockVoitures`);
+
 	
 	
 COMMIT;	
