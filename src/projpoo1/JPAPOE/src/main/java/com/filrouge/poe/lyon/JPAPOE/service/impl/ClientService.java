@@ -35,10 +35,29 @@ public class ClientService implements IClientService {
 	public Client findClient(Integer i) {
 		return this.clientdao.find(i);
 	}
-
+/*
 	@Override
 	public List<Client> findClientByName(String n) {
 		return  this.clientdao.FindClientByName(n);
+	}*/
+
+	@Override
+	public List<Client> requetenamed(String requete) {
+		return this.clientdao.requetenamed(requete);
 	}
+
+	@Override
+	public List<Client> requetenamed(String requete, Object... tab) {
+		// TODO Auto-generated method stub
+		return this.clientdao.requetenamed(requete, tab);	
+	}
+
+	@Override
+	public void listDevis(Client c) {
+		this.clientdao.methodeRetourne(c).stream().forEach(x -> 
+		System.out.println("Id = " + x.getId() + " date de creation = " + x.getDate_Creation()));
+	}
+	
+	
 
 }

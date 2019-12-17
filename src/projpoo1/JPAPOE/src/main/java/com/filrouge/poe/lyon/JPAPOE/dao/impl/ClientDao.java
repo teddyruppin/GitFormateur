@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.filrouge.poe.lyon.JPAPOE.dao.IDao;
 import com.filrouge.poe.lyon.JPAPOE.model.Client;
+import com.filrouge.poe.lyon.JPAPOE.model.Devis;
 
 public class ClientDao extends EntityDao<Client> implements IDao<Client, Integer> {
 
@@ -30,10 +31,27 @@ public class ClientDao extends EntityDao<Client> implements IDao<Client, Integer
 	public Client find(Integer i) {
 		return this.find(Client.class, i);
 	}
-
+	/*
 	@Override
 	public List<Client> FindClientByName(String n) {
 		return this.FindClientByName1("ByFirstName",n,Client.class);
+	}*/
+
+	@Override
+	public List<Client> requetenamed(String requete) {
+		// TODO Auto-generated method stub
+		return this.requeteNamed(Client.class,requete);
+	}
+
+	@Override
+	public List<Client> requetenamed(String requete, Object... tab) {
+		// TODO Auto-generated method stub
+		return this.requeteNamed(Client.class,requete, tab);
+	}
+
+	@Override
+	public List<Devis> methodeRetourne(Client c) {
+		return c.getListeDevis();
 	}
 
 }

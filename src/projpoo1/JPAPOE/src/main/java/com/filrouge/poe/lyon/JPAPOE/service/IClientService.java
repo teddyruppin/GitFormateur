@@ -5,11 +5,16 @@ import java.util.List;
 import com.filrouge.poe.lyon.JPAPOE.model.Client;
 
 public interface IClientService {
-
+	
 	List<Client> listClient();
 	void ajouterClient(Client c);
 	void modifierClient(Client c);
 	void supprimerClient(Client c);
 	Client findClient(Integer i);
-	List<Client> findClientByName(String n);
+	//List<Client> findClientByName(String n);
+	List<Client> requetenamed(String requete);
+	List<Client> requetenamed(String requete, Object...tab);
+	
+	void listDevis(Client c);
+	
 }

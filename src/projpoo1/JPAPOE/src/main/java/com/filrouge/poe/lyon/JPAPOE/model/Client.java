@@ -1,19 +1,27 @@
 package com.filrouge.poe.lyon.JPAPOE.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "client")
 @NamedQueries(value = { 
+		@NamedQuery(name = "Client.findAll", 
+		query = "SELECT c from Client AS c"),
 		@NamedQuery(name = "ByFirstName", 
-		query = "SELECT c from Client c where c.name like :param1") })
+		query = "SELECT c FROM Client AS c WHERE c.name like ?1") })
+
+//SELECT c from Client c where c.name like :param1
 
 public class Client {
 
@@ -41,6 +49,10 @@ public class Client {
 	
 	@Column(name = "mobile", length = 50, nullable = false)
 	private String portable;
+	
+	
+	@OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
+	private List<Devis> listeDevis;
 
 	public int getId() {
 		return id;
@@ -111,7 +123,13 @@ public class Client {
 		return "Client [id=" + id + ", name=" + name + ", firstname=" + firstname + ", adresse=" + adresse
 				+ ", codepostal=" + codepostal + ", ville=" + ville + ", tel=" + tel + ", portable=" + portable + "]";
 	}
-	
-	
+
+	public List<Devis> getListeDevis() {
+		return listeDevis;
+	}
+
+	public void setListeDevis(List<Devis> listeDevis) {
+		this.listeDevis = listeDevis;
+	}	
 	
 }

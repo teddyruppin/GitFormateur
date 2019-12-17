@@ -75,7 +75,7 @@ public abstract class EntityDao<T> {
 			dao.closeEntityManager(em);
 		}
 	}
-	
+	/*
 	public List<T> FindClientByName1(String query,String param,Class<T> eclass){
 		EntityManager em = null;
 		try {
@@ -88,6 +88,35 @@ public abstract class EntityDao<T> {
 			e.printStackTrace();
 		}
 		return null;
+	}*/
+	
+	
+	public List<T> requeteNamed(Class<T> eclass, String requete) {
+		EntityManager em = null;
+		try {
+			em = dao.newEntityManager();
+			TypedQuery<T> q = em.createNamedQuery(requete,eclass);
+			return q.getResultList();	
+		} finally {
+			dao.closeEntityManager(em);
+		}
 	}
+	
+	public List<T> requeteNamed(Class<T> eclass, String requete, Object...objet) {
+		EntityManager em = null;
+		try {
+			em = dao.newEntityManager();
+			TypedQuery<T> q = em.createNamedQuery(requete,eclass);
+			int i = 1; // sql commence toujours à 1
+			for (Object p : objet) {
+				q.setParameter(i, p);
+				i++;
+			}
+			return q.getResultList();	
+		} finally {
+			dao.closeEntityManager(em);
+		}
+	}
+	
 	
 }
