@@ -1,0 +1,93 @@
+/* on pointe sur les balises h1/h2/... */
+h1 {    
+    color: blue;
+}
+
+h2{
+    color: darkblue;
+}
+
+/* selecteur par espace/imbrication/ h2 dans div */
+div h2{
+    font-size: 1.2em;
+}
+
+div strong{
+    color: purple;
+}
+
+/* quelquechose qui a id = "cookies" */
+#cookies{
+    background-color: lightgrey;
+}
+
+/*selecteur sur class soustitre*/
+.soustitre{
+    font-style: italic;
+}
+
+.gras{
+    font-weight: bold;
+}
+
+/* class = "gras soustitre */
+.gras.soustitre{
+
+}
+
+/* class = "gras" DANS class="soustitre" */
+.gras .soustitre{
+    
+}
+
+a[href]{
+    text-decoration: none;
+    color: black;
+}
+
+a[href]:hover{
+    background-color: yellow;
+    font-size: 150%;
+    border: 3px solid orange;
+}
+
+a[href="#"]{
+    background-color: blue;
+}
+
+a[href^="http"]{
+    background-color: white;
+}
+
+a[href$=".pdf"]{
+    background-color: red;
+}
+
+ul>li:nth-child(odd){
+    color: green;
+}
+
+
+h2:not(.soustitre){
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

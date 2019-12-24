@@ -1,0 +1,84 @@
+div {
+    border: 1px solid blue;
+}
+
+span{
+    border: 1px solid red;
+}
+
+.ib {
+    border: 3px solid yellow;
+    width: 200px;
+    min-height: 100px;
+    display: inline-block;
+    vertical-align: top;
+    
+/*    visibility: hidden;*/
+}
+
+.relatif{
+    border :3px solid purple;
+    position: relative;
+    top: 5px;
+    left: 0px;
+}
+
+.absolu{
+    border: 3px solid cyan;
+    background: rgba(0,255,255,0.5);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top:0px;
+    left: 0px;
+}
+
+.fixe{
+    border: 3px solid magenta;
+    background: rgba(255,0,255,0.5);
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top:0px;
+    right: 0px;
+}
+
+
+.flottant{
+    border : 3px solid lime;
+    width: 200px;
+    float: left;
+}
+
+.clearer{
+    clear: both;
+}
+
+
+.flexbox{
+    background: lightgrey;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.flexbox>div{
+    background: blue;
+    color: aliceblue
+}
+
+/*
+.flexbox>div:nth-child(1){
+    flex: 1;
+}*/
+
+
+
+
+
+
+
+
+
