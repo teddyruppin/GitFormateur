@@ -1,0 +1,14 @@
+/*toute les classe qui commencent par col*/
+[class^=col] {
+    background: pink;
+    border: 1px solid;
+}
+
+#bandeau{
+    height: 200px;
+    background: url(../img/forest.jpg)
+}
+
+#contenu{
+    min-height: 100px;
+}
