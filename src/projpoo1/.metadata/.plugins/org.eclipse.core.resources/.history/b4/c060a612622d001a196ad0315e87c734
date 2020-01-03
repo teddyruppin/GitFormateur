@@ -1,0 +1,23 @@
+<%@page import="JSP01.classes.Personne"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.util.Scanner" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1> choix : <%= request.getParameter("choix") %></h1>
+	
+	<%
+	Personne p = new Personne();
+	Scanner sc = new Scanner();
+	p.getNom();
+	p.getPrenom();
+	out.append(p);
+	%>
+	
+</body>
+</html>

@@ -1,0 +1,19 @@
+<%@page import="gestionWebPersonne.classes.Personne"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	Personne op = (Personne)session.getAttribute("mapersonne");
+%>
+
+	<a href="Menu?choix=1"> Choix 1 </a>
+	<a href="Menu?choix=2"> Choix 2 </a>
+	<a href="Menu?choix=3"> Choix 3 </a>
+</body>
+</html>

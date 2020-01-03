@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>projet_atos_web_Full_DAO</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <session-config>
+    <session-timeout>10</session-timeout>
+  </session-config>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/JSP/error/404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/JSP/error/500.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>javax.servlet.ServletException</exception-type>
+    <location>/WEB-INF/JSP/error/servletException.jsp</location>
+  </error-page>
+  <servlet>
+    <servlet-name>Menu</servlet-name>
+    <servlet-class>projet_atos_web.servlets.Menu</servlet-class>
+    <init-param>
+      <param-name>contenu</param-name>
+      <param-value>/WEB-INF/JSP</param-value>
+    </init-param>
+    <init-param>
+      <param-name>battle</param-name>
+      <param-value>/WEB-INF/JSP/englishbattle</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Menu</servlet-name>
+    <url-pattern>/Menu</url-pattern>
+    <url-pattern>/Home</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>Joueurs</servlet-name>
+    <servlet-class>projet_atos_web.servlets.JoueursServlet</servlet-class>
+    <init-param>
+      <param-name>contenu</param-name>
+      <param-value>/WEB-INF/JSP</param-value>
+    </init-param>
+    <init-param>
+      <param-name>battle</param-name>
+      <param-value>/WEB-INF/JSP/englishbattle</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Joueurs</servlet-name>
+    <url-pattern>/SaisirJoueur</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

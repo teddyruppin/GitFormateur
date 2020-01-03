@@ -1,0 +1,19 @@
+package gestionWebPersonne.classes;
+
+public class Personne {
+
+	private String nom;
+	private String prenom;
+	private Integer age;
+	
+	public Personne() {
+		this ("","",null);
+	}
+	
+	public Personne(String nom, String prenom, Integer age) {
+		super();
+		this.nom = nom;
+		
+	}
+
+}

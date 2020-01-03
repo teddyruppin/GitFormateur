@@ -1,0 +1,19 @@
+package JSP01.classes;
+
+public class Personne {
+	private String nom;
+	private String prenom;
+
+	public Personne() {
+		this("","");
+		
+	}
+	
+	public Personne(String nom, String prenom) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		
+	}
+
+}

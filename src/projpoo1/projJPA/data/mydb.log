@@ -1,0 +1,12 @@
+/*C3*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table if exists Person CASCADE 
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Person (\u000d\u000a       id bigint not null,\u000d\u000a        birth_day date,\u000d\u000a        first_name varchar(200) not null,\u000d\u000a        version bigint not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table Person \u000d\u000a       add constraint UK_7mn4ygvit4b1j315tfpihe37d unique (first_name)
+INSERT INTO PERSON VALUES(1,'2019-12-12','test',0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+\u000d\u000a    drop table if exists Person CASCADE 
+\u000d\u000a    drop sequence hibernate_sequence if exists
+DISCONNECT

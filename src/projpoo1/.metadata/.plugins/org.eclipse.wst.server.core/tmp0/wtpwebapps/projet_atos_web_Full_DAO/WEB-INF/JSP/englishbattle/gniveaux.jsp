@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ page import="net.atos.englishbattle.service.impl.*"%>
+<%@ page import="net.atos.englishbattle.service.*"%>
+<%@ page import="net.atos.englishbattle.business.*"%>
+
+<c:import url="../page/header.jsp">
+	<c:param name="title" value="Gestion des Niveaux" />
+</c:import>
+
+<%
+	NiveauService niveauService = new NiveauServiceImpl();
+%>
+
+
+
+
+<div class="container">
+
+	<h3>Niveaux du jeu</h3>
+	<table class="table">
+
+		<c:forEach items="${SniveauService.recupererNiveaux()}" var="nv">
+			<ul>
+				<li><c:out value="${nv.getNom()}" /></li>
+			</ul>
+		</c:forEach>
+	</table>
+
+</div>
+
+<%-- Fin Body --%>
+<c:import url="../page/footer.jsp" />
+
