@@ -27,6 +27,7 @@ body {
     color; #fff;
     height: 100vh;
     position: relative;
+    overflow: auto;
 }
 
 .showcase:before{
@@ -58,17 +59,46 @@ body {
 }
 
 
-.affichage{
-    opacity: 0.1;
+.showcase1{
+    background-color: var(--primary-color);
+    color; #fff;
+    max-height: 100vh;
+    position: relative;
+    overflow: auto;
+}
+
+.showcase1:before{
+    content: '';
+    background: url('../img/ouvrir-un-garage-automobile.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.showcase1 .showcase-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.showcase1 h1{
+    font-size: 4rem;
 }
 
 
-.affichage:hover{
+form span{
+    opacity: 0;
+}
+
+form div:hover span{
     opacity: 1;
-    font-size: 120%;
-    color: blue;
 }
-
 
 
 

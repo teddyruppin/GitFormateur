@@ -58,9 +58,11 @@ div,header,section,nav,article,footer,aside{
     width: 90%;
 }
 
+
 #gauche li:hover ul a{
     display: block;
 }
+
 
 
 
