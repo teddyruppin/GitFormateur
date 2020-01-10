@@ -1,0 +1,32 @@
+package myapp.tests;
+
+import static org.junit.Assert.fail;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import myapp.services.ICalculator;
+import myapp.services.ILogger;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "config.xml")
+public class TestSpringJUnitIntegration {
+
+	@Before
+	public void beforeEachTest() {
+		System.err.println("====================");
+	}
+
+	void use(ILogger logger) {
+		logger.log("voila le resultat");
+	}
+
+	void use(ICalculator calc) {
+		calc.add(100, 200);
+	}
+
+}

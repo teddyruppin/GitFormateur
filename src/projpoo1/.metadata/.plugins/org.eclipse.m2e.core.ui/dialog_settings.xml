@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="Spring-MVC"/>
+			<item value="projetSpring01"/>
 			<item value="JSP01"/>
 			<item value="jpaTP1"/>
 			<item value="projJPA"/>
@@ -14,6 +24,8 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="Spring-MVC"/>
+			<item value="projetSpring01"/>
 			<item value="JSP01"/>
 			<item value="jpaTP1"/>
 			<item value="projJPA"/>

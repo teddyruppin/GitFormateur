@@ -1,0 +1,14 @@
+package spring004web.services;
+
+import java.util.List;
+
+import spring004web.bean.Course;
+
+public class ServiceListeCourses implements IServiceListeCourses {
+
+	public List<Course> rechercherCourses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

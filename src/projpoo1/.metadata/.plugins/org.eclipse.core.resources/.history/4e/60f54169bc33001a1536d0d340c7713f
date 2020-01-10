@@ -1,0 +1,5 @@
+package spring004web.enume;
+
+public interface Sexe {
+
+}

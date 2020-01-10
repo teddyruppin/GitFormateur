@@ -1,0 +1,11 @@
+package myapp.imp;
+
+import myapp.services.ILogger;
+
+public class StderrLogger implements ILogger {
+
+	public StderrLogger() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

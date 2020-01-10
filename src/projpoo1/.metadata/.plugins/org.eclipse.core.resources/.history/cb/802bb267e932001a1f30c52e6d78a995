@@ -1,0 +1,9 @@
+package spring004web.dao;
+
+import java.util.List;
+
+import spring004web.bean.Course;
+
+public interface IListeCoursesDAO {
+	List<Course> rechercherCourses();
+}

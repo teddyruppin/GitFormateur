@@ -1,0 +1,9 @@
+package spring004web.dao;
+
+public interface IListeCoursesDAO {
+	
+	public interface IListeCoursesDAO {
+		List<Course> rechercherCourses();
+		}
+
+}

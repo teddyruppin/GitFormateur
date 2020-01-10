@@ -1,0 +1,19 @@
+package myapp.tests;
+
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestSpring {
+
+	@Before
+	public void beforeEachTest() {
+		System.err.println("====================");
+	}
+
+
+	@Test
+	public void test() {
+	}
+
+}

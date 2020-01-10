@@ -16,4 +16,10 @@
 <typeInfo handle="=JPAPOE/src\/main\/java&lt;com.filrouge.poe.lyon.JPAPOE.service{IDevisService.java[IDevisService" modifiers="513" timestamp="1576505201426"/>
 <typeInfo handle="=JPAPOE/src\/main\/java&lt;com.filrouge.poe.lyon.JPAPOE.dao.impl{UserDao.java[UserDao" modifiers="1" timestamp="1576509441862"/>
 <typeInfo handle="=JPAPOE/src\/main\/java&lt;com.filrouge.poe.lyon.JPAPOE.service{IUserService.java[IUserService" modifiers="513" timestamp="1576505202281"/>
+<typeInfo handle="=projetSpring01/src&lt;myapp.services{ILogger.java[ILogger" modifiers="513" timestamp="1578476818820"/>
+<typeInfo handle="=projetSpring01/src&lt;myapp.services{ICalculator.java[ICalculator" modifiers="513" timestamp="1578479839213"/>
+<typeInfo handle="=Spring-MVC/C:\/Users\/Formation\/.m2\/repository\/org\/springframework\/spring-web\/5.1.5.RELEASE\/spring-web-5.1.5.RELEASE.jar&lt;org.springframework.web(WebApplicationInitializer.class[WebApplicationInitializer" modifiers="1537" timestamp="1578498509788"/>
+<typeInfo handle="=Spring-MVC/C:\/Users\/Formation\/.m2\/repository\/org\/springframework\/spring-webmvc\/5.1.5.RELEASE\/spring-webmvc-5.1.5.RELEASE.jar&lt;org.springframework.web.servlet.mvc(Controller.class[Controller" modifiers="1537" timestamp="1578498504470"/>
+<typeInfo handle="=NewSpring4POE/src\/main\/java&lt;spring004web.dao{IListeCoursesDAO.java[IListeCoursesDAO" modifiers="513" timestamp="1578582218149"/>
+<typeInfo handle="=NewSpring4POE/src\/main\/java&lt;spring004web.services{IServiceListeCourses.java[IServiceListeCourses" modifiers="513" timestamp="1578582241082"/>
 </typeInfoHistroy>

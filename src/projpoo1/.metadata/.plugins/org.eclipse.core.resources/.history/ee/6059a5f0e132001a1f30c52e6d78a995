@@ -1,0 +1,22 @@
+package spring004web.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import spring004web.bean.Course;
+import spring004web.dao.IListeCoursesDAO;
+
+@Service
+public class ServiceListeCourses implements IServiceListeCourses {
+
+	@Autowired
+	private IListeCoursesDAO dao;
+	
+	public List<Course> rechercherCourses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

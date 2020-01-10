@@ -1,0 +1,35 @@
+package myapp.tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import myapp.services.ILogger;
+
+public class TestLoggerServices {
+
+	@Before
+	public void beforeEachTest() {
+		System.err.println("=============");
+	}
+
+	@After
+	public void afterEachTest() {
+	}
+
+	
+	// utiliser le logger
+	
+	void use(ILogger logger) {
+		logger.log("Voila le resultat = hello");
+	}
+	
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

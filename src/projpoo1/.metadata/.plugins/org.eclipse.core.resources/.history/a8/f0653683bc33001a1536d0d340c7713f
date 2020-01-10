@@ -1,0 +1,21 @@
+package spring004web.bean;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "LISTECOURSES")
+public class Eleves {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "t_eleve")
+	private Integer id;
+	private String nom;
+	private String prenom;
+	private Integer quantite;
+	
+}

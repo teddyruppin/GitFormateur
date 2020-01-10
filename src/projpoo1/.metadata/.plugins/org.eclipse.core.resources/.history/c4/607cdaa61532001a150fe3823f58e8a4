@@ -1,0 +1,27 @@
+package myapp.tests;
+
+
+import org.junit.Before;
+import org.junit.Test;
+
+import myapp.services.ILogger;
+
+public class TestSpring {
+
+	@Before
+	public void beforeEachTest() {
+		System.err.println("====================");
+	}
+
+	void use(ILogger logger) {
+		logger.log("voila le resultat");
+	}
+	
+	
+	
+	
+	@Test
+	public void test() {
+	}
+
+}

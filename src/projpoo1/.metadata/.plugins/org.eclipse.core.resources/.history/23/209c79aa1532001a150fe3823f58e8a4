@@ -1,0 +1,30 @@
+package myapp.tests;
+
+
+import org.junit.Before;
+import org.junit.Test;
+
+import myapp.services.ICalculator;
+import myapp.services.ILogger;
+
+public class TestSpring {
+
+	@Before
+	public void beforeEachTest() {
+		System.err.println("====================");
+	}
+
+	void use(ILogger logger) {
+		logger.log("voila le resultat");
+	}
+	
+	void use(ICalculator calc) {
+		calc.add(100, 200)
+	}
+	
+	
+	@Test
+	public void test() {
+	}
+
+}

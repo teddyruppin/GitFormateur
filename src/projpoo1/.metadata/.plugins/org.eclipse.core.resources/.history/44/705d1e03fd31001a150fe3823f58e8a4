@@ -1,0 +1,25 @@
+package myapp.tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestLoggerServices {
+
+	@Before
+	public void beforeEachTest() {
+		
+	}
+
+	@After
+	public void afterEachTest() {
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

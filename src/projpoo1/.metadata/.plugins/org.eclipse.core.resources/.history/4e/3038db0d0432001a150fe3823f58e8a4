@@ -1,0 +1,23 @@
+package myapp.imp;
+
+import myapp.services.ICalculator;
+import myapp.services.ILogger;
+
+public class SimpleCalculator implements ICalculator {
+
+	private ILogger logger;
+	
+	public void start() {
+		if (logger == null) {
+			throw new IllegalStateException("null logger"
+					;)
+		}
+	}
+	
+	@Override
+	public int add(int a, int b) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

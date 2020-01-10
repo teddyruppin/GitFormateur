@@ -1,0 +1,31 @@
+package spring004web.bean;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import spring004web.enume.Sexe;
+
+@Entity
+@Table(name = "LISTECOURSES")
+public class Eleves {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "t_eleve")
+	private Integer id;
+	private String nom;
+	private String prenom;
+	private Integer classe;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date_naissance;
+	private String adresse;
+	private Sexe sexe;
+	
+}

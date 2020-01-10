@@ -1,0 +1,30 @@
+package myapp.imp;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+
+import javax.print.attribute.standard.OutputDeviceAssigned;
+
+import myapp.services.ILogger;
+
+public class BeanFileLogger implements ILogger {
+	
+	private String filename;
+	private PrintWriter writer;
+	
+	public void start() {
+		if(filename == null) {
+			throw new IllegalStateException("no filename");
+		}
+		try {
+			OutputStream os = new FileOutputStream(filename, true);
+			this.writer = new PrintWriter(os);
+		} catch (FileNotFoundException e) {
+			throw new IllegalStateException("mauvais filename");
+		}
+		System.err.println("start " + this);
+	}
+}
