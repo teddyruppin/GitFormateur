@@ -1,0 +1,27 @@
+package spring004web.dao;
+
+import java.util.List;
+
+import spring004web.bean.Eleves;
+
+public class EleveDao implements IEleveDao {
+
+	public List<Eleves> rechercherCourses() {
+		return null;
+	}
+
+	public void creerEleve(Eleves eEleves) {
+		
+	}
+
+	public void supprimerEleve(Eleves eEleves) {
+		
+	}
+
+	public void modifierEleve(Eleves eEleves) {
+		
+	}
+
+
+
+}

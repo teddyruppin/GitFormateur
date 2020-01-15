@@ -1,0 +1,139 @@
+package com.springboot.bean;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table( name="t_notes")
+public class Note {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idnotes")
+	private Integer id;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date;
+	
+	@ManyToOne
+	@JoinColumn(name = "eleve")
+	private Integer ideleve;
+	
+	@ManyToOne
+	@JoinColumn(name = "classe")
+	private Integer idclasse;
+	
+	@ManyToOne
+	@JoinColumn(name = "matiere")
+	private Integer idmatiere;
+	
+	@ManyToOne
+	@JoinColumn(name = "prof")
+	private Integer idprof;
+	
+	@ManyToOne
+	@JoinColumn(name = "trimestre")
+	private Integer idtrimestre;
+	
+	private Integer note;
+	
+	private String avis;
+
+	private Float avancement;
+
+	
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Integer getIdeleve() {
+		return ideleve;
+	}
+
+	public void setIdeleve(Integer ideleve) {
+		this.ideleve = ideleve;
+	}
+
+	public Integer getIdclasse() {
+		return idclasse;
+	}
+
+	public void setIdclasse(Integer idclasse) {
+		this.idclasse = idclasse;
+	}
+
+	public Integer getIdmatiere() {
+		return idmatiere;
+	}
+
+	public void setIdmatiere(Integer idmatiere) {
+		this.idmatiere = idmatiere;
+	}
+
+	public Integer getIdprof() {
+		return idprof;
+	}
+
+	public void setIdprof(Integer idprof) {
+		this.idprof = idprof;
+	}
+
+	public Integer getIdtrimestre() {
+		return idtrimestre;
+	}
+
+	public void setIdtrimestre(Integer idtrimestre) {
+		this.idtrimestre = idtrimestre;
+	}
+
+	public Integer getNote() {
+		return note;
+	}
+
+	public void setNote(Integer note) {
+		this.note = note;
+	}
+
+	public String getAvis() {
+		return avis;
+	}
+
+	public void setAvis(String avis) {
+		this.avis = avis;
+	}
+
+	public Float getAvancement() {
+		return avancement;
+	}
+
+	public void setAvancement(Float avancement) {
+		this.avancement = avancement;
+	}
+	
+	
+
+}

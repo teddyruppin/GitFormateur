@@ -1,0 +1,29 @@
+package spring004web.service;
+
+import java.util.List;
+
+import spring004web.bean.Eleves;
+
+public class ServiceEleve implements IServiceEleve {
+
+	public List<Eleves> rechercherCourses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void creerEleve(String pLibelle, Integer eQuantite) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void supprimerEleve(Integer eIdEleve) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void modifierEleve(List<Eleves> eListeEleve) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,40 @@
+titre.bonjour=Bonjour avec Spring
+libelle.bonjour.lemonde=Bonjour {0} avec Spring.
+
+titre.listeeleves=Liste des eleves
+titre.listeprofs=Liste des profs
+
+colonne.identifiant=ID 
+colonne.nom=nom
+colonne.prenom=prenom
+colonne.classe= classe
+colonne.datedenaissance= date de naissance
+colonne.adresse= adresse
+colonne.sexe= genre
+colonne.prof= prof
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

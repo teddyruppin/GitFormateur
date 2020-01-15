@@ -1,0 +1,59 @@
+package com.springboot;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.springboot.bean.Joueur;
+import com.springboot.bean.Niveau;
+import com.springboot.bean.Partie;
+import com.springboot.bean.Question;
+import com.springboot.dao.DaoJoueur;
+import com.springboot.dao.DaoNiveau;
+import com.springboot.dao.DaoPartie;
+import com.springboot.dao.DaoQuestion;
+import com.springboot.dao.DaoVerbe;
+
+@SpringBootApplication
+public class ProjetSpringBoot01Application implements CommandLineRunner{
+	@Autowired
+	DaoJoueur serviceCrud;
+	@Autowired
+	DaoNiveau serviceNCrud;
+	@Autowired
+	DaoPartie servicePCrud;
+	@Autowired
+	DaoVerbe serviceVCrud;
+	@Autowired
+	DaoQuestion serviceQCrud;
+		
+	public static void main(String[] args) {
+		SpringApplication.run(ProjetSpringBoot01Application.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		/*for(Joueur jo:serviceCrud.findByEmail("c")) {
+			System.out.println(jo.getNiveau().getName());
+		}*/
+		for(Niveau niveau:serviceNCrud.findAll()) {
+			System.out.println("**"+niveau.getName()+"**");
+			for(Joueur jo:niveau.getJoueurs()) {
+				System.out.println("\t"+jo.getEmail());
+			}
+		}
+		
+		for(Partie partie:servicePCrud.findAll()) {
+			System.out.println(" parties " + partie.getId() + " joueur id " + partie.getJoueur());
+			
+		}
+		
+		for(Question question:serviceQCrud.findAll()) {
+			System.out.println(" parties " + question.getId() + " joueur id " + question.getJoueur());
+			
+		}
+	}
+
+}

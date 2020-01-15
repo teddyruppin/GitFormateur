@@ -1,0 +1,124 @@
+package com.springboot.controller.form;
+
+import java.util.Date;
+
+import javax.validation.constraints.NotEmpty;
+
+import com.springboot.bean.Classe;
+import com.springboot.bean.Eleve;
+import com.springboot.bean.Matiere;
+import com.springboot.bean.Professeur;
+
+public class NoteForm {
+
+	private Integer id;
+	
+	@NotEmpty
+	private String date;
+	
+	@NotEmpty
+	private String eleve;
+	
+	@NotEmpty
+	private String classe;
+	
+	@NotEmpty
+	private String matiere;
+	
+	@NotEmpty
+	private String prof;
+	
+	@NotEmpty
+	private String idtrimestre;
+	
+	@NotEmpty
+	private String note;
+	
+	@NotEmpty
+	private String avis;
+	
+	@NotEmpty
+	private String avancement;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Eleve getEleve() {
+		return eleve;
+	}
+
+	public void setEleve(Eleve eleve) {
+		this.eleve = eleve;
+	}
+
+	public Classe getClasse() {
+		return classe;
+	}
+
+	public void setClasse(Classe classe) {
+		this.classe = classe;
+	}
+
+	public Matiere getMatiere() {
+		return matiere;
+	}
+
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
+	}
+
+	public Professeur getProf() {
+		return prof;
+	}
+
+	public void setProf(Professeur prof) {
+		this.prof = prof;
+	}
+
+	public Integer getIdtrimestre() {
+		return idtrimestre;
+	}
+
+	public void setIdtrimestre(Integer idtrimestre) {
+		this.idtrimestre = idtrimestre;
+	}
+
+	public Integer getNote() {
+		return note;
+	}
+
+	public void setNote(Integer note) {
+		this.note = note;
+	}
+
+	public String getAvis() {
+		return avis;
+	}
+
+	public void setAvis(String avis) {
+		this.avis = avis;
+	}
+
+	public Float getAvancement() {
+		return avancement;
+	}
+
+	public void setAvancement(Float avancement) {
+		this.avancement = avancement;
+	}
+	
+	
+}

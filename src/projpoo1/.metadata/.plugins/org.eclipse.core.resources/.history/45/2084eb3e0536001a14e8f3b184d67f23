@@ -1,0 +1,56 @@
+package com.springboot.bean;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+public class Verbe {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(name = "baseverbale")
+	private String baseverbal;	
+	
+	private String participepasse;
+	private String preterit;
+	private String traduction;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getBaseverbal() {
+		return baseverbal;
+	}
+	public void setBaseverbal(String baseverbal) {
+		this.baseverbal = baseverbal;
+	}
+	public String getParticipepasse() {
+		return participepasse;
+	}
+	public void setParticipepasse(String participepasse) {
+		this.participepasse = participepasse;
+	}
+	public String getPreterit() {
+		return preterit;
+	}
+	public void setPreterit(String preterit) {
+		this.preterit = preterit;
+	}
+	public String getTraduction() {
+		return traduction;
+	}
+	public void setTraduction(String traduction) {
+		this.traduction = traduction;
+	}
+	
+	
+
+
+}

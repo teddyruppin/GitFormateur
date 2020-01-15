@@ -1,0 +1,47 @@
+package com.springboot.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springboot.bean.Matiere;
+import com.springboot.dao.DaoMatiere;
+
+@Service
+public class ServiceMatiere implements IServiceMatiere {
+
+	@Autowired
+	DaoMatiere daomatiere;
+	
+	@Override
+	public List<Matiere> rechercheMatiere() {
+		// TODO Auto-generated method stub
+		return daomatiere.findAll();
+	}
+
+	@Override
+	public Matiere rechercheMatiereId(int id) {
+		// TODO Auto-generated method stub
+		return daomatiere.findById(id).get();
+	}
+
+	@Override
+	public void creerMatiere(Matiere pMatiere) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void modifierMatiere(Matiere pMatiere) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void supprimerMatiere(Matiere pMatiere) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

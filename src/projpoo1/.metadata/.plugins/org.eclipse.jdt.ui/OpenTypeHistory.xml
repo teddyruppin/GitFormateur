@@ -20,6 +20,12 @@
 <typeInfo handle="=projetSpring01/src&lt;myapp.services{ICalculator.java[ICalculator" modifiers="513" timestamp="1578479839213"/>
 <typeInfo handle="=Spring-MVC/C:\/Users\/Formation\/.m2\/repository\/org\/springframework\/spring-web\/5.1.5.RELEASE\/spring-web-5.1.5.RELEASE.jar&lt;org.springframework.web(WebApplicationInitializer.class[WebApplicationInitializer" modifiers="1537" timestamp="1578498509788"/>
 <typeInfo handle="=Spring-MVC/C:\/Users\/Formation\/.m2\/repository\/org\/springframework\/spring-webmvc\/5.1.5.RELEASE\/spring-webmvc-5.1.5.RELEASE.jar&lt;org.springframework.web.servlet.mvc(Controller.class[Controller" modifiers="1537" timestamp="1578498504470"/>
-<typeInfo handle="=NewSpring4POE/src\/main\/java&lt;spring004web.dao{IListeCoursesDAO.java[IListeCoursesDAO" modifiers="513" timestamp="1578582218149"/>
-<typeInfo handle="=NewSpring4POE/src\/main\/java&lt;spring004web.services{IServiceListeCourses.java[IServiceListeCourses" modifiers="513" timestamp="1578582241082"/>
+<typeInfo handle="=SpringEcole/src\/main\/java&lt;spring004web.dao{IEleveDao.java[IEleveDao" modifiers="513" timestamp="1578924769011"/>
+<typeInfo handle="=SpringEcole/src\/main\/java&lt;spring004web.service{IServiceEleve.java[IServiceEleve" modifiers="513" timestamp="1579016967810"/>
+<typeInfo handle="=SpringEcole/src\/main\/java&lt;spring004web.dao{IClasseDao.java[IClasseDao" modifiers="513" timestamp="1578925302062"/>
+<typeInfo handle="=SpringEcole/src\/main\/java&lt;spring004web.service{IServiceClasse.java[IServiceClasse" modifiers="513" timestamp="1578928239015"/>
+<typeInfo handle="=SpringEcole/src\/main\/java&lt;spring004web.service{IServiceProf.java[IServiceProf" modifiers="513" timestamp="1578928916009"/>
+<typeInfo handle="=ProjetSpringBootEcole/src\/main\/java&lt;com.springboot.service{IServiceMatiere.java[IServiceMatiere" modifiers="513" timestamp="1579080885235"/>
+<typeInfo handle="=ProjetSpringBootEcole/C:\/Users\/Formation\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/2.1.11.RELEASE\/spring-data-jpa-2.1.11.RELEASE.jar&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1578910029016"/>
+<typeInfo handle="=ProjetSpringBootEcole/src\/main\/java&lt;com.springboot.service{IServiceNote.java[IServiceNote" modifiers="513" timestamp="1579093250451"/>
 </typeInfoHistroy>

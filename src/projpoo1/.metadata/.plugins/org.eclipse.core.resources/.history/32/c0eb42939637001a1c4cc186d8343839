@@ -1,0 +1,55 @@
+package com.springboot.bean;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table( name="t_notes")
+public class Note {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idnotes")
+	private Integer id;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date;
+	
+	@ManyToOne
+	@JoinColumn(name = "eleve")
+	private Eleve eleve;
+	
+	@ManyToOne
+	@JoinColumn(name = "classe")
+	private Classe classe;
+	
+	@ManyToOne
+	@JoinColumn(name = "matiere")
+	private Matiere matiere;
+	
+	@ManyToOne
+	@JoinColumn(name = "prof")
+	private Prof prof;
+	
+	private Integer idtrimestre;
+	
+	private Integer note;
+	
+	private String avis;
+
+	private Float avancement;
+
+	
+	
+
+}

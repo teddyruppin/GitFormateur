@@ -1,0 +1,11 @@
+package spring004web.service;
+
+import java.util.List;
+
+
+public interface IServiceEleve {
+	List<Eleve> rechercherCourses();
+	void creerEleve(final String pLibelle, final Integer eQuantite);
+	void supprimerEleve(final Integer eIdEleve);
+	void modifierEleve(final List<Eleve> eListeEleve);
+}

@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	isELIgnored="false" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title><spring:message code="titre.modification.elementeleves" /></title>
+</head>
+<body>
+	<form:form method="post" modelAttribute="modification"
+		action="modifierModificationListeEleves">
+		<table border="1">
+			<thead>
+				<tr>
+				<th><spring:message code="colonne.identifiant" /></th>
+				<th><spring:message code="colonne.nom" /></th>
+				<th><spring:message code="colonne.prenom" /></th>
+				<th><spring:message code="colonne.classe" /></th>
+				<th><spring:message code="colonne.datedenaissance" /></th>
+				<th><spring:message code="colonne.adresse" /></th>
+				<th><spring:message code="colonne.sexe" /></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${modification.listeEleves}" var="eleve"
+					varStatus="status">
+					<tr>
+					
+						<td><c:out value="${eleve.id}" /> <input type="hidden"
+							name="listeEleves[${status.index}].id" value="${eleve.id}" /></td>
+							
+						<td><c:out value="${eleve.nom}" /> <input type="hidden"
+							name="listeEleves[${status.index}].nom"
+							value="${eleve.nom}" /></td>
+							
+						<td><input type="text"
+							name="listeEleves[${status.index}].prenom"
+							value="${eleve.prenom}" /><br /> <b><i><form:errors
+										path="listeEleves[${status.index}].prenom" /></i></b></td>
+										
+						<td><input type="text"
+							name="listeEleves[${status.index}].Classe"
+							value="${eleve.classe}" /><br /> <b><i><form:errors
+										path="listeEleves[${status.index}].Classe" /></i></b></td>				
+					
+						<td><input type="text"
+							name="listeEleves[${status.index}].date"
+							value="${eleve.date}" /><br /> <b><i><form:errors
+										path="listeEleves[${status.index}].date" /></i></b></td>
+
+						<td><input type="text"
+							name="listeEleves[${status.index}].adresse"
+							value="${eleve.adresse}" /><br /> <b><i><form:errors
+										path="listeEleves[${status.index}].adresse" /></i></b></td>
+
+						<td><input type="text"
+							name="listeEleves[${status.index}].sexe"
+							value="${eleve.sexe}" /><br />   <b><i><form:errors
+										path="listeEleves[${status.index}].sexe" /></i></b>	</td>
+																												
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<input type="submit" />
+	</form:form>
+</body>
+</html>

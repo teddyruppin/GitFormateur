@@ -1,0 +1,6 @@
+package com.springboot.controller;
+
+@Controller
+public class MatiereController {
+
+}

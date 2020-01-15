@@ -1,0 +1,39 @@
+package com.springboot.bean;
+
+import java.util.Date;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.TemporalType;
+
+import org.springframework.data.jpa.repository.Temporal;
+
+public class Question {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Temporal(TemporalType.DATE)
+	private Date dateenvoi;
+	
+	
+
+	
+	private Boolean affichepreterit;
+	private String reponseparticipepasse;
+	private String reponsepreterit;
+	private String pseudo;
+	
+	@ManyToOne
+	@JoinColumn(name = "partie_id")
+	private Niveau partie;	
+	
+	@ManyToOne
+	@JoinColumn(name = "verbe_id")
+	private Niveau verbe;	
+
+}

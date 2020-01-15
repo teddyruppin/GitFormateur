@@ -1,0 +1,31 @@
+package spring004web.service;
+
+import java.util.Date;
+import java.util.List;
+
+import spring004web.bean.Profs;
+import spring004web.enume.Sexe;
+
+public class ServiceProf implements IServiceProf {
+
+	public List<Profs> rechercherProf() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void creerProf(String nom, String prenom, Date date_naissance, String adresse, Sexe sexe) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void supprimerProf(Integer pIdProf) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void modifierProf(List<Profs> pListeProf) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

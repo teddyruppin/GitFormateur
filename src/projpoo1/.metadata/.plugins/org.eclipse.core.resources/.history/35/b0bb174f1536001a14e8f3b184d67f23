@@ -1,0 +1,40 @@
+package spring004web.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+import spring004web.bean.Classes;
+import spring004web.dao.IClasseDao;
+
+public class ServiceClasse implements IServiceClasse {
+
+	@Autowired
+	private IClasseDao dao;
+	
+	@Transactional(readOnly = true)
+	public List<Classes> rechercherClasse() {
+		return dao.rechercherClasses();
+	}
+
+	public void creerClasses(String pLibelle, Integer eQuantite) {
+		final Classes cClasse = new Classes();
+		cClasse.setId(id);
+		cClasse.setNom(nom);
+		cClasse.setProf(prof);
+		
+		dao.creerClasses(cClasses);
+	}
+
+	public void supprimerClasses(Integer cIdClasses) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void modifierClasses(List<Classes> cListeClasses) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

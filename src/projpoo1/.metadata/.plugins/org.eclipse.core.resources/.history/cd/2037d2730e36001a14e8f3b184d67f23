@@ -1,0 +1,45 @@
+package spring004web.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import spring004web.bean.Eleves;
+import spring004web.dao.IEleveDao;
+
+@Service
+public class ServiceEleve implements IServiceEleve {
+
+	@Autowired
+	private IEleveDao dao;
+
+	@Transactional(readOnly = true)
+	public List<Eleves> rechercherCourses() {
+		return dao.rechercherCourses();
+	}
+
+	@Transactional
+	public void creerCourse(final String pLibelle, final Integer pQuantite) {
+		final Eleves lEleve = new Eleves();
+		lEleve.setLibelle(pLibelle);
+		lEleve.setQuantite(pQuantite);
+		dao.creerCourse(lEleve);
+	}
+
+	@Transactional
+	public void supprimerCourse(final Integer eIdEleve) {
+		final Eleves lEleve = new Eleves();
+		lEleve.setId(eIdEleve);
+		dao.supprimerEleve(lEleve);
+	}
+
+	@Transactional
+	public void modifierCourses(final List<Eleves> pListeCourses) {
+		for (final Eleves lEleve : pListeCourses) {
+			dao.modifierEleve(lEleve);
+		}
+	}
+
+}

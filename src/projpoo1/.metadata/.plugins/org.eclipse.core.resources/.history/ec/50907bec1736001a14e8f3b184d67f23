@@ -1,0 +1,58 @@
+package spring004web.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.CriteriaUpdate;
+import javax.persistence.criteria.Expression;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Root;
+
+import spring004web.bean.Profs;
+
+public class ProfsDao {
+
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	
+	public List<Eleves> rechercherEleve() {
+		final CriteriaBuilder lCriteriaBuilder = entityManager.getCriteriaBuilder();
+		final CriteriaQuery<Eleves> lCriteriaQuery = lCriteriaBuilder.createQuery(Eleves.class);
+		final Root<Eleves> lRoot = lCriteriaQuery.from(Eleves.class);
+		lCriteriaQuery.select(lRoot);
+		final TypedQuery<Eleves> lTypedQuery = entityManager.createQuery(lCriteriaQuery);
+		return lTypedQuery.getResultList();
+	}
+
+	public void creerEleve(Eleves eEleves) {
+		entityManager.persist(eEleves);
+	}
+
+	public void supprimerEleve(Eleves eEleves) {
+		final Eleves lEleves = entityManager.getReference(Eleves.class, eEleves.getId());
+		entityManager.remove(lEleves);
+	}
+
+	public void modifierEleve(Eleves eEleves) {
+		final CriteriaBuilder lCriteriaBuilder = entityManager.getCriteriaBuilder();
+		final CriteriaUpdate<Eleves> lCriteriaUpdate = lCriteriaBuilder.createCriteriaUpdate(Eleves.class);
+		final Root<Eleves> lRoot = lCriteriaUpdate.from(Eleves.class);
+		final Path<Eleves> lPath = lRoot.get("id");
+		final Expression<Boolean> lExpression = lCriteriaBuilder.equal(lPath, eEleves.getId());
+		lCriteriaUpdate.where(lExpression);
+		lCriteriaUpdate.set("prenom", eEleves.getPrenom());
+		final Query lQuery = entityManager.createQuery(lCriteriaUpdate);
+		final int lRowCount = lQuery.executeUpdate();
+		if (lRowCount != 1) {
+			final org.hibernate.Query lHQuery = lQuery.unwrap(org.hibernate.Query.class);
+			final String lSql = lHQuery.getQueryString();
+			throw new RuntimeException("Nombre d'occurences (" + lRowCount + ") modifiés différent de 1 pour " + lSql);
+		}
+	}
+}

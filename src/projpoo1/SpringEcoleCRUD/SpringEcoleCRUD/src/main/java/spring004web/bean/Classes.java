@@ -13,6 +13,9 @@ public class Classes {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
+	
+	//@ManyToOne
+	//@JoinColumn(name = "prof")
 	private Integer prof;
 	
 	public Integer getId() {
@@ -33,5 +36,6 @@ public class Classes {
 	public void setProf(Integer prof) {
 		this.prof = prof;
 	}
+
 	
 }

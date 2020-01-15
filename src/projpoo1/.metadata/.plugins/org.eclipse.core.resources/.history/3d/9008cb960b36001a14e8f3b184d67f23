@@ -1,0 +1,5 @@
+package spring004web.dao;
+
+public interface DaoEleve {
+
+}

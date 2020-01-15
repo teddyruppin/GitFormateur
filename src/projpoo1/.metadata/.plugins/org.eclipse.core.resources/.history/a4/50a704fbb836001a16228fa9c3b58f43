@@ -1,0 +1,52 @@
+titre.bonjour=Bonjour avec Spring
+libelle.bonjour.lemonde=Bonjour {0} avec Spring.
+
+titre.listeeleves=Liste des eleves
+titre.listeprofs=Liste des profs
+titre.listeclasses=Liste des classes
+
+colonne.identifiant=ID 
+colonne.nom=nom
+colonne.prenom=prenom
+colonne.classe= classe
+colonne.datedenaissance= date de naissance
+colonne.adresse= adresse
+colonne.sexe= genre
+colonne.prof= prof
+
+titre.creation.eleve= creation eleve
+creation.eleve.libelle.nom=Nom
+creation.eleve.libelle.prenom=Prenom
+creation.eleve.libelle.adresse=Adresse
+creation.eleve.libelle.classe=Classe
+creation.eleve.libelle.date=Date de naissance
+creation.eleve.libelle.sexe= sexe
+
+NotEmpty.creation.nom=Le libellé est nécessaire.
+NotEmpty.creation.prenom=Le libellé est nécessaire.
+NotEmpty.creation.classe=Le libellé est nécessaire.
+NotEmpty.creation.date=Le libellé est nécessaire.
+NotEmpty.creation.adresse=Le libellé est nécessaire.
+NotEmpty.creation.sexe=Le libellé est nécessaire.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

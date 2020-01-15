@@ -1,0 +1,87 @@
+package com.springboot.controller;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.springboot.bean.Classe;
+import com.springboot.bean.Eleve;
+import com.springboot.bean.Matiere;
+import com.springboot.bean.Note;
+import com.springboot.bean.Professeur;
+import com.springboot.controller.form.NoteForm;
+import com.springboot.service.IServiceClasse;
+import com.springboot.service.IServiceEleve;
+import com.springboot.service.IServiceMatiere;
+import com.springboot.service.IServiceNote;
+import com.springboot.service.IServiceProfesseur;
+
+@Controller
+public class NoteController {
+
+	@Autowired
+	IServiceNote servicenote;
+
+	@Autowired
+	private IServiceClasse serviceclasse;
+
+	@Autowired
+	private IServiceEleve serviceeleve;
+
+	@Autowired
+	private IServiceMatiere servicematiere;
+
+	@Autowired
+	private IServiceProfesseur serviceprof;
+
+	private Note convertForm(NoteForm noteform) throws Exception {
+
+		Note pnote = new Note();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date madate = sdf.parse(noteform.getDate());
+		Classe pclasse = serviceclasse.rechercheClasseId(Integer.valueOf(noteform.getClasse()));
+		Eleve peleve = serviceeleve.rechercheEleveId(Integer.valueOf(noteform.getEleve()));
+		Matiere pmatiere = servicematiere.rechercheMatiereId(Integer.valueOf(noteform.getMatiere()));
+		Professeur pprof = serviceprof.rechercheProfId(Integer.valueOf(noteform.getProf()));
+
+		pnote.setId(noteform.getId());
+		pnote.setDate(madate);
+		pnote.setEleve(peleve);
+		pnote.setClasse(pclasse);
+		pnote.setMatiere(pmatiere);
+		pnote.setProf(pprof);
+		pnote.setIdtrimestre(1);
+		pnote.setNote(Integer.valueOf(noteform.getNote()));
+		pnote.setAvis(noteform.getAvis());
+		pnote.setAvancement(Float.valueOf(noteform.getAvancement()));
+
+		return pnote;
+	}
+
+	@GetMapping("/afficherCreerNote")
+	public String getAffiche(Model pmodel) {
+		List<Classe> lclasse = serviceclasse.rechercheClasse();
+		List<Eleve> leleve = serviceeleve.rechercheEleve();
+		List<Matiere> lmatiere = serviceclasse.rechercheMatiere();
+		List<Prof> lprof = serviceeleve.rechercheProf();
+		List<Note> listenotes;
+		listenotes = servicenote.rechercheNote();
+		pmodel.addAttribute("listeclasse", lclasse);
+		pmodel.addAttribute("listeeleve", leleve);
+		pmodel.addAttribute("listeclasse", lclasse);
+		pmodel.addAttribute("listeeleve", leleve);
+		pmodel.addAttribute("listenotes", listenotes);
+		pmodel.addAttribute("action", "CreerNotes");
+		if (pmodel.containsAttribute("noteform") == false) {
+			NoteForm noteform = new NoteForm();
+			noteform.setId(0);
+			pmodel.addAttribute("noteform", noteform);
+		}
+		return "notes";
+	}
+}

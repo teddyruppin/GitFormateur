@@ -1,0 +1,44 @@
+package com.springboot.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.springboot.bean.Classe;
+import com.springboot.bean.Matiere;
+import com.springboot.bean.Professeur;
+import com.springboot.controller.form.ClasseForm;
+import com.springboot.controller.form.MatiereForm;
+import com.springboot.service.IServiceMatiere;
+
+@Controller
+public class MatiereController {
+
+	@Autowired
+	IServiceMatiere servicematiere;
+	
+	
+	private Matiere convertForm(MatiereForm matiereform) {
+		Matiere pmatiere = new Matiere();
+		pmatiere.setId(matiereform.getId());
+		pmatiere.setNom(matiereform.getNom());
+		return pmatiere;
+	}
+	
+	@GetMapping("/afficherCreerMatiere")
+	public String getAffiche(Model pmodel) {
+		List<Matiere> listeMatieres;
+		listeMatieres = servicematiere.rechercheMatiere();
+		pmodel.addAttribute("listematieres", listeMatieres);
+		pmodel.addAttribute("action", "CreerMatiere");
+		if(pmodel.containsAttribute("matiereform") == false) {
+			MatiereForm matiereform = new MatiereForm();
+			matiereform.setId(0);
+			pmodel.addAttribute("matiereform",matiereform);
+		}
+		return "matieres";
+	}
+}

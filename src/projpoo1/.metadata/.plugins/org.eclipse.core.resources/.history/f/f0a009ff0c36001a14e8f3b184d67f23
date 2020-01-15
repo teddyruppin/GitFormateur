@@ -1,0 +1,16 @@
+package spring004web.dao;
+
+import java.util.List;
+
+import spring004web.bean.Eleves;
+
+public class IEleveDao {
+	
+	List<Eleves> rechercherCourses();
+	void creerCourse(final Eleves eEleves);
+	void supprimerCourse(final Eleves eEleves);
+	void modifierCourse(final Eleves eEleves);
+
+}
+
+

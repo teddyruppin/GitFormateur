@@ -2,7 +2,10 @@ package spring004web.bean;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,10 +23,17 @@ public class Eleves {
 	private Integer id;
 	private String nom;
 	private String prenom;
+	
+	//@ManyToOne
+	//@JoinColumn(name = "prof")
 	private Integer classe;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date_naissance;
 	private String adresse;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "enum('HOMME', 'FEMME')")
 	private Sexe sexe;
 	
 	public Integer getId() {

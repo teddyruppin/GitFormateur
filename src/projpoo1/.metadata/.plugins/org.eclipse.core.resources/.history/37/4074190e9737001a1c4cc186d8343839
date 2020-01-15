@@ -1,0 +1,13 @@
+package com.springboot.service;
+
+import java.util.List;
+
+import com.springboot.bean.Note;
+
+public interface IServiceNote {
+	public List<Note> rechercheNote();
+	public Note rechercheNoteId(final int id);
+	public void creerNote(final Note peleve);
+	public void modifierNote(final Note peleve);
+	public void supprimerNote(final Note peleve);
+}

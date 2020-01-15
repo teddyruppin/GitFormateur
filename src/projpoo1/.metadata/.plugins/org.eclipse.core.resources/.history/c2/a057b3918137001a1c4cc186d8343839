@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headerload :: load">
+<title th:text="'Gestion Des Matieres'"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+	<div th:each="matiere : ${listematieres}">
+		<p th:text="${matiere.nom}"></p>
+	</div>
+</body>
+</html>

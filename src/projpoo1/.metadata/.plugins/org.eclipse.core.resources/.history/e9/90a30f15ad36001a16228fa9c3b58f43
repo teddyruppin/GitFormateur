@@ -1,0 +1,9 @@
+package spring004web.controller;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+public class CreationForm {
+
+	@NotEmpty
+	private String nom;
+}

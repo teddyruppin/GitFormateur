@@ -14,6 +14,7 @@
 	</section>
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="SpringEcoleCRUD"/>
 			<item value="Spring-MVC"/>
 			<item value="projetSpring01"/>
 			<item value="JSP01"/>
@@ -24,6 +25,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="SpringEcoleCRUD"/>
 			<item value="Spring-MVC"/>
 			<item value="projetSpring01"/>
 			<item value="JSP01"/>
@@ -101,6 +103,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Formation\eclipse-workspace\demo"/>
 			<item value="C:\Users\Formation\eclipse-workspace"/>
 		</list>
 		<list key="projectNameTemplate">

@@ -1,0 +1,46 @@
+package com.springboot.controller.form;
+
+import java.util.Date;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+
+import com.springboot.bean.Classe;
+import com.springboot.bean.Eleve;
+import com.springboot.bean.Matiere;
+import com.springboot.bean.Professeur;
+
+public class NoteForm {
+
+	private Integer id;
+	
+	@NotEmpty
+	private Date date;
+	
+	@NotEmpty
+	private Eleve eleve;
+	
+	@NotEmpty
+	private Classe classe;
+	
+	@NotEmpty
+	private Matiere matiere;
+	
+	@NotEmpty
+	private Professeur prof;
+	
+	@NotEmpty
+	private Integer idtrimestre;
+	
+	@NotEmpty
+	private Integer note;
+	
+	@NotEmpty
+	private String avis;
+	
+	@NotEmpty
+	private Float avancement;
+}

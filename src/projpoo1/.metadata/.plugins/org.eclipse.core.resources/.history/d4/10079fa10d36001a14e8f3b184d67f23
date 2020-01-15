@@ -1,0 +1,5 @@
+package spring004web.service;
+
+public interface IEleveService {
+
+}

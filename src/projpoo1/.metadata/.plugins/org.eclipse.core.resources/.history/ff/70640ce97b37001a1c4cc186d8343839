@@ -1,0 +1,25 @@
+package com.springboot.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.springboot.bean.Matiere;
+import com.springboot.service.IServiceMatiere;
+
+@Controller
+public class MatiereController {
+
+	@Autowired
+	IServiceMatiere servicematiere;
+	
+	@GetMapping("/afficherMatiere")
+	public String getAffiche(Model pmodel) {
+		List<Matiere> listMatieres;
+		lisMatieres = servicematiere.rechercheMatiere();
+		return "matieres";
+	}
+}
